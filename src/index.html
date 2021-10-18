@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>test</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="js/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css"/>
 </head>
 <body>
-    <header class="header">
+    <!-- <header class="header">
         <div class="container container__header">
             <nav class="header__nav">
                 <ul>
@@ -22,6 +24,33 @@
                     <li><a href="#">Pаботы</a></li>
                     <li><a href="#">Доставка</a> </li>
                     <li><a href="#"><span></span>Подарочный сертификат</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header> -->
+
+    <header class="header">
+        <div class="container container__header">
+            <nav class="header__nav">
+                <ul>
+                    <li class="header__nav">
+                        <a href="#">О нас</a>
+                        <a href="#">Заказать</a>
+                        <a href="#">Pаботы</a>
+                    </li>
+                    <li>
+                        <a href="" class="header__logo">
+                            <img src="img/Frame 98.png" alt="" class="logo__img">
+                        </a>
+                    </li>
+                    <li class="header__nav">
+                        <a href="#">Доставка</a> 
+                        <a href="#"><span></span>Подарочный сертификат</a>
+                        <div class="header__right">
+                            <a href="#" class="header__language"><p>ru</p> <p>eng</p></a> 
+                            <a href="#" class="header__basket"></a>
+                        </div>
                     </li>
                 </ul>
             </nav>
@@ -137,13 +166,73 @@
     <section class="work">
         <div class="container container__services">
             <h2 class="services__title">Работы</h2>
-            <div class="cards">
+            <div class="controll">
+                <div class="prev"></div>
+                <div class="next"></div>
+            </div>
+            <div class="cards services-slider">
                 <div class="card">
                     <img src="img/work-card-1.png" alt="" class="card__img">
                     <p class="card__text">
                         «Карты безупречно красивые! 
                         Напечатаны на толстой бумаге и качественными чернилами.
                         Не могу дождаться, чтобы заказать ещё парочку в наш новый дом)»
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="img/work-card-2.png" alt="" class="card__img">
+                    <p class="card__text">
+                        «Получила свою карту, спасибо большое.
+                        Упаковали очень хорошо, что пришлось даже повозиться с открытием. 
+                        Очень рада, что получилось сделать так, как я хотела. Благодарю!»
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="img/work-card-3.png" alt="" class="card__img">
+                    <p class="card__text">
+                        «Очень доволен тем, какой наша карта получилась!
+                        Доставка была быстрой, и карта была хорошо упакована. 
+                        Обязательно буду использовать для будущих подарков. Спасибо!»
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="img/work-card-4.png" alt="" class="card__img">
+                    <p class="card__text">
+                        «Заказывала электронную версию звездной карты. 
+                        Очень благодарна, всё очень понравилось) 
+                        Хорошая идея для подарка. Спасибо большое»
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="img/work-card-1.png" alt="" class="card__img">
+                    <p class="card__text">
+                        «Карты безупречно красивые! 
+                        Напечатаны на толстой бумаге и качественными чернилами.
+                        Не могу дождаться, чтобы заказать ещё парочку в наш новый дом)»
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="img/work-card-2.png" alt="" class="card__img">
+                    <p class="card__text">
+                        «Получила свою карту, спасибо большое.
+                        Упаковали очень хорошо, что пришлось даже повозиться с открытием. 
+                        Очень рада, что получилось сделать так, как я хотела. Благодарю!»
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="img/work-card-3.png" alt="" class="card__img">
+                    <p class="card__text">
+                        «Очень доволен тем, какой наша карта получилась!
+                        Доставка была быстрой, и карта была хорошо упакована. 
+                        Обязательно буду использовать для будущих подарков. Спасибо!»
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="img/work-card-4.png" alt="" class="card__img">
+                    <p class="card__text">
+                        «Заказывала электронную версию звездной карты. 
+                        Очень благодарна, всё очень понравилось) 
+                        Хорошая идея для подарка. Спасибо большое»
                     </p>
                 </div>
                 <div class="card">
@@ -362,5 +451,32 @@
         </div>
     </footer>
     <script src="js/script.min.js"></script>
+    <script src="js/slick/slick.min.js"></script>
+    <script>
+        const windowInnerWidth = window.innerWidth
+        console.log(windowInnerWidth);
+        if(windowInnerWidth < 1000) {
+            $('.services-slider').slick({
+                infinite: true,
+                dots: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                variableWidth: false,
+                prevArrow: $('.prev'),
+                nextArrow: $('.next')
+            });
+        } else {
+            $('.services-slider').slick({
+                infinite: true,
+                dots: true,
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                variableWidth: false,
+                prevArrow: $('.prev'),
+                nextArrow: $('.next')
+            });
+        }
+        
+    </script>
 </body>
 </html>
