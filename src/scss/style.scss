@@ -21,6 +21,10 @@ li {
     list-style: none !important; 
 }
 
+a {
+    text-decoration: none !important;
+}
+
 ul {
     padding-left: 0 !important;
 }
@@ -102,7 +106,7 @@ ul {
 
     .header__language {
         display: flex;
-        font-family: Mont;
+        font-family: Open Sans;
         font-style: normal;
         font-weight: bold;
         font-size: 14px;
@@ -184,7 +188,7 @@ ul {
         color: #FFFFFF;
     }
     &__text {
-        font-family: Mont;
+        font-family: Open Sans;
         font-style: normal;
         font-weight: 700;
         font-size: 20px;
@@ -794,6 +798,10 @@ ul {
     }
 }
 
+.services__title{
+    margin-top: 0;
+} 
+
 @media (max-width: 700px) {
     .form__title {
         width: auto;
@@ -805,8 +813,20 @@ ul {
     .main__text {
         display: none;
     }
+    .services__title {
+        padding-top: 50px;
+        margin: 0;
+        padding-bottom: 30px;
+    }
+    .advantages .cards {
+        padding-bottom: 50px;
+    }
     .services .cards {
         justify-content: center;
+        padding-bottom: 50px;
+    }
+    .services .cards .card:not(:last-child) {
+        margin-bottom: 25px;
     }
     .advantages .cards {
         justify-content: center;
@@ -828,5 +848,62 @@ ul {
     }
     .main__info {
         width: auto;
+    }
+    .question__title {
+        padding-top: 0;
+        margin-top: 0;
+    }
+    .cards.services-slider.slick-initialized.slick-slider.slick-dotted {
+        padding-bottom: 50px;
+    }
+    .question__answer {
+        margin-bottom: 50px !important;
+    }
+    .form .form__title {
+        margin-top: 0;
+        padding-top: 20px;
+    }
+    .form .form__btn {
+        width: 100% !important;
+    }
+    .conteiner__footer__copyright ul {
+        flex-wrap: wrap;
+        margin: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .footer .left__info {
+        margin-top: 50px !important;
+    }
+    .footer .right__info {
+        margin-top: 0 !important;
+        margin-right: 0 !important;
+    } 
+    .footer .footer__copyright {
+        height: auto;
+        margin-top: 0;
+    }
+    .footer .footer__company {
+        width: 100%;
+        margin: 0;
+    }
+    .form__title {
+        font-size: 31px;
+    }
+    .question .item__title {
+        font-size: 18px;
+    }
+    .work .controll {
+        top: 77px;
+        right: 10px;
+    }
+    .work .slick-track .card.slick-slide {
+        margin-right:0;
+    }
+    .work .services__title {
+        padding-top: 25px;
+    }
+    .work .services__title {
+        padding-bottom: 50px;
     }
 }
