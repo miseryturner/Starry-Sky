@@ -419,7 +419,7 @@ ul {
     }
 
     .slick-track .card.slick-slide {
-        margin-right: 31.5px;
+        margin-right: 31.5px !important;
     }
     .slick-dots {
         position: initial;
@@ -550,6 +550,11 @@ ul {
         padding: 0;
         display: flex;
     }
+
+    .left__img {
+        max-width: 633px;
+        width: 100%;
+    }
     .right__form {
         display: flex;
         width: 100%;
@@ -604,6 +609,7 @@ ul {
 }
 
 .footer {
+    background-color: #fff;
     .conteiner__footer {
         display: flex;
         justify-content: space-between;
@@ -744,9 +750,93 @@ ul {
     }
 }
 
+.about__page {
+    background-color: #F7F6F9;
+    .work {
+        background-color: initial;
+    }
+    .about {
+        &__title {
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 38px;
+            line-height: 44px;
+            color: #2D2661;
+            text-align: center;
+            margin-top: 100px;
+            margin-bottom: 74px;
+        }
+
+        &__content:nth-child(odd) {
+            .about__text{
+                order: 2;
+            }
+        }
+
+        &__content:not(:first-child) {
+            margin-top: 70px;
+        }
+
+        &__content:last-child {
+            margin-bottom: 170px;
+        }
+    
+        &__content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .about__text{
+                max-width: 595px;
+                p {
+                    font-family: Open Sans;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 20px;
+                    line-height: 32px;
+                    letter-spacing: 0.002em;
+                }
+                h2 {
+                    font-family: Open Sans;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 24px;
+                    line-height: 32px;
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                    letter-spacing: 0.2px;
+                    color: #2D2661;
+                    margin-bottom: 33px;
+                }
+            }
+            .about__img {
+                width: 100%;
+                max-width: 625px;
+            }
+        }
+    }
+}
+
 @media (max-width: 1590px) {
     .main {
         min-height: auto;
+    }
+}
+
+@media (max-width: 1300px) {
+    .about__page {
+        .about {
+            &__content:nth-child(odd) {
+                .about__text{
+                    order: 0;
+                }
+            }
+    
+            &__content {
+                flex-direction: column;
+            }
+        }
     }
 }
 
@@ -787,6 +877,9 @@ ul {
         height: auto;
         justify-content: flex-start;
     }
+    .main .main__link {
+        margin-top: 0;
+    }
 }
 
 @media (max-width:1550px) {
@@ -795,6 +888,18 @@ ul {
     }
     .header {
         justify-content: flex-start !important;
+    }
+    .about__page .about__content:not(:first-child) {
+        margin-top: 40px;
+    }
+
+    .about__page .about__title {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .about__page .about__content:last-child {
+        margin-bottom: 100px;
     }
 }
 
