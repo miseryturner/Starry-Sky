@@ -219,6 +219,35 @@ ul {
     }
 }
 
+.container__success {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #2D2661;
+    img {
+        width: auto;
+        max-width: 100%;
+    }
+    
+    .info {
+        max-width: 715px;
+        margin: 0 auto;
+        &__green {
+            color: #51B801;
+        }
+        &__red {
+            color: #FF3A2E;
+        }
+    }
+    .info__dont__sucsses {
+        max-width: 796px;
+    }
+}
+
 .services {
     background: rgba(45, 38, 97, 0.04);
     &__title {
@@ -754,6 +783,9 @@ ul {
     background-color: #F7F6F9;
     .work {
         background-color: initial;
+        .controll {
+            top: -40px;
+        }
     }
     .about {
         &__title {
@@ -862,10 +894,56 @@ ul {
         margin: 0;
     }
 }
+@media (max-width:470px) {
+    .basket .item__left {
+        flex-direction: column;
+    }
+}
+
+@media (max-width:350px) {
+    .basket .general__price form {
+        flex-direction: column;
+        width: 100%;
+        input {
+            width: 100% !important;
+        }
+    }
+    .basket .checkout__basket {
+        width: 80% !important;
+    }
+    .basket__title {
+        padding-top: 50px !important;
+    }
+    .basket .general__price .sum__price {
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 32px;
+        letter-spacing: 0.2px;
+        color: #272727;
+    }
+}
 
 @media (max-width:1085px) {
     li.header__nav {
         display: none !important;
+    }
+    .basket .general__price .sum__price {
+        font-size: 20px;
+    }
+    .basket .item__price {
+        margin-right: 50px !important;
+    }
+    .basket .item__right {
+        justify-content: flex-end !important;
+        width: 100% !important;
+    }
+    .basket .item {
+        flex-direction: column;
+    }
+    .basket {
+        padding-bottom: 50px !important;
     }
 }
 
@@ -902,6 +980,157 @@ ul {
         margin-bottom: 100px;
     }
 }
+
+.basket {
+    background: rgba(45, 38, 97, 0.04);
+    padding-bottom: 190px;
+    .container__basket {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__items {
+        width: 100%;
+    }
+    &__title {
+        padding-top: 134px;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 38px;
+        line-height: 44px;
+        text-align: center;
+        letter-spacing: 0.2px;
+        color: #2D2661;
+        margin-bottom: 70px;
+        margin-top: 0;
+    }
+    .item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 60px 0;
+        border-top: 1px solid #D9D9D9;
+        border-bottom: 1px solid #D9D9D9;
+        width: 100%;
+        &__left{
+            display: flex;
+            align-items: center;
+        }
+        &__right{
+            display: flex;
+            align-items: center;
+        }
+        &__price {
+            margin-right: 200px;
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 32px;
+            letter-spacing: 0.2px;
+            color: #2D2661;
+        }
+        .delete__on__basket {
+            background-image: url(../img/basket-delete.svg);
+            border: 0;
+            background-color: inherit;
+            width: 55px;
+            height: 55px;
+            cursor: pointer;
+        }
+        &__title {
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 32px;
+            letter-spacing: 0.2px;
+            color: #272727;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+        &__size {
+            margin-bottom: 10px;
+        }
+        &__size, &__style {
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 32px;
+            letter-spacing: 0.2px;
+            color: #272727;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+    .general__price {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        margin-top: 40px;
+        flex-direction: column;
+        align-items: flex-end;
+        form {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 61px;
+        }
+        .sum__price {
+            margin-top: 0;
+            margin-bottom: 90px;
+        }
+        input:first-child {
+            background: #FFFFFF;
+            border: 1px solid #ABA8C0;
+            box-sizing: border-box;
+            border-radius: 4px 0px 0px 4px;
+            width: 180px;
+            height: 44px;
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 24px;
+            letter-spacing: 0.2px;
+            text-transform: uppercase;
+            color: #737373;
+        }
+        input:last-child {
+            width: 148px;
+            height: 44px;
+            background: #ABA8C0;
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 18px;
+            text-align: center;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            color: #F7F6F9;
+            border: 0;
+            cursor: pointer;
+        }
+    }
+    .checkout__basket {
+        width: 290px;
+        height: 70px;
+        left: 659px;
+        background: #2D2661;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 18px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        color: #FFFFFF;
+
+    }
+}
+
 
 .services__title{
     margin-top: 0;

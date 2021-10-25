@@ -9,13 +9,13 @@
     <link rel="stylesheet" type="text/css" href="js/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css"/>
 </head>
-<body class="about__page">
+<body>
     <header class="header">
         <div class="container container__header">
             <nav class="header__nav">
                 <ul>
                     <li class="header__nav">
-                        <a href="#">О нас</a>
+                        <a href="about.html">О нас</a>
                         <a href="#">Заказать</a>
                         <a href="#">Pаботы</a>
                     </li>
@@ -36,82 +36,33 @@
             </nav>
         </div>
     </header>
-    <section class="about">
-        <div class="container about_container">
-            <h1 class="about__title">О проекте «Stellumo»</h1>
-            <div class="about__content">
-                <div class="about__text">
-                    <p>
-                        Проект Stellumo это не просто интернет-магазин постеров.
-                        Это в первую очередь способ сохранить воспоминания и наполнить 
-                        свой дом значимыми вещами, которые будут приносить только приятные эмоции. 
-                        Мы предоставляем вам все инструменты для создания собственного 
-                        уникального дизайна: выбирайте локацию, масштабируйте, применяйте 
-                        различные темы, оформляйте заказ. И вот, счасливое воспоминание 
-                        украшает ваше жилище или дом близкого человека.
-                    </p>
-                </div>
-                <img class="about__img" src="img/about-image-1.png" alt="">
-            </div>
-            <div class="about__content">
-                <div class="about__text">
-                    <h2>
-                        Наша миссия
-                    </h2>
-                    <p>
-                        Для нас важно, чтобы каждый пользователь нашего проекта 
-                        смог создать по-настоящему ценную вещь 
-                        для себя или близкого человека.Запечатлить 
-                        памятное событие и место. Сделать запоминающийся подарок.
-                        Украсить свой дом уникальным постером 
-                        и наполнить его эмоциями.
-                    </p>
-                </div>
-                <img class="about__img" src="img/about-image-2.png" alt="">
-            </div>
-        </div>
-    </section>
-    <section class="work">
-        <div class="container container__services">
-            <div class="controll">
-                <div class="prev"></div>
-                <div class="next"></div>
-            </div>
-            <div class="cards services-slider">
-                <div class="card">
-                    <img src="img/work-card-1.png" alt="" class="card__img">
-                </div>
-                <div class="card">
-                    <img src="img/work-card-2.png" alt="" class="card__img">
-                </div>
-                <div class="card">
-                    <img src="img/work-card-3.png" alt="" class="card__img">
-                </div>
-                <div class="card">
-                    <img src="img/work-card-4.png" alt="" class="card__img">
-                </div>
-                <div class="card">
-                    <img src="img/work-card-1.png" alt="" class="card__img">
-                </div>
-                <div class="card">
-                    <img src="img/work-card-2.png" alt="" class="card__img">
-                </div>
-                <div class="card">
-                    <img src="img/work-card-3.png" alt="" class="card__img">
-                </div>
-                <div class="card">
-                    <img src="img/work-card-4.png" alt="" class="card__img">
-                </div>
-                <div class="card">
-                    <img src="img/work-card-2.png" alt="" class="card__img">
-                </div>
-                <div class="card">
-                    <img src="img/work-card-3.png" alt="" class="card__img">
-                </div>
-                <div class="card">
-                    <img src="img/work-card-4.png" alt="" class="card__img">
+    <section class="basket">
+        <div class="container container__basket">
+            <h2 class="basket__title">Корзина</h2>
+            <div class="basket__items">
+                <div class="item">
+                    <div class="item__left">
+                        <img src="img/basket-1.png" alt="" class="item__img">
+                        <div class="item__info">
+                            <h2 class="item__title">Постер «Звездное небо»</h2>
+                            <p class="item__size">Размер: 30Х40 см</p>
+                            <p class="item__style">Стиль: Нордик</p>
+                        </div>
+                    </div>
+                    <div class="item__right">
+                        <p class="item__price">500 Р</p>
+                        <button class="delete__on__basket"></button>
+                    </div>
                 </div>
             </div>
+            <div class="general__price">
+                <form>
+                    <input type="text" placeholder="введите промокод">
+                    <input type="submit" value="Применить">
+                </form>
+                <p class="sum__price">Общая сумма: 1 500 ₽</p>
+            </div>
+            <button class="checkout__basket">оформить заказ</button>
         </div>
     </section>
     <footer class="footer">
