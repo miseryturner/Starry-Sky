@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="js/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css"/>
+</head>
+<body>
+    <header class="header">
+        <div class="container container__header">
+            <nav class="header__nav">
+                <ul>
+                    <li class="header__nav">
+                        <a href="about.html">О нас</a>
+                        <a href="#">Заказать</a>
+                        <a href="#">Pаботы</a>
+                    </li>
+                    <li>
+                        <a href="index.html" class="header__logo">
+                            <img src="img/Frame 98.png" alt="" class="logo__img">
+                        </a>
+                    </li>
+                    <li class="header__nav">
+                        <a href="#">Доставка</a> 
+                        <a href="#"><span></span>Подарочный сертификат</a>
+                        <div class="header__right">
+                            <a href="#" class="header__language"><p>ru</p> <p>eng</p></a> 
+                            <a href="basket.html" class="header__basket"></a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="payment">
+        <div class="container container__payment">
+            <h2 class="payment__title">Оформление заказа</h2>
+            <div class="payment__content">
+                <div class="payment__left">
+                    <form>
+                        <div class="form-field">
+                            <label for="form-name">ФИО*</label>
+                            <input type="text" name="NAME" id="name" placeholder="Введите имя">
+                        </div>
+                        <div class="form-line">
+                            <div class="form-field">
+                                <label for="form-tel">Номер телефона*</label> 
+                                <input type="text" class="phone-mask" name="PHONE" placeholder="+7 (___) ___-__-__" inputmode="text">
+                            </div>
+                            <div class="form-field">
+                                <label for="form-tel">E-mail*</label> 
+                                <input type="text" class="phone-mask" name="PHONE" placeholder="+7 (___) ___-__-__" inputmode="text">
+                            </div>
+                        </div>
+                        <h2 class="form_sub_title adress">Адрес доставки:</h2>
+                        <div class="form-line">
+                            <div class="form-field">
+                                <label for="form-tel">Страна*</label> 
+                                <select>
+                                    <option>Введите страну</option>
+                                    <option>test</option>
+                                    <option>test</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label for="form-tel">Город*</label> 
+                                <select>
+                                    <option>Введите город</option>
+                                    <option>test</option>
+                                    <option>test</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-field form-field--adress">
+                            <label for="form-name">Адрес*</label>
+                            <select>
+                                <option>Введите адрес доставки: Индекс, улица, дом, корпус, квартира</option>
+                                <option>test</option>
+                                <option>test</option>
+                            </select>
+                        </div>
+                        <div class="toggle-btn">
+                            <p>Заказ получаю я:</p>
+                            <input id="checkbox1" type="checkbox">
+                            <label for="checkbox1"></label>
+                        </div>
+
+                        <h2 class="form_sub_title">Способ доставки:</h2>
+                        
+                        <div class="form-check">
+
+                        </div>
+                        
+                        <div class="form-field checked-form checked-form_question">
+                            <p>
+                                <input type="radio" id="test1" name="radio-group" checked="">
+                                <label for="test1">Почта России (Назменый транспорт).</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="test2" name="radio-group">
+                                <label for="test2">Почта России (Воздушный транспорт)</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="test3" name="radio-group">
+                                <label for="test3">Служба доставки СДЭК (пункт выдачи)</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="test4" name="radio-group">
+                                <label for="test4">Служба доставки СДЭК (доставка курьером)</label>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+                <div class="payment__right">
+                    <div class="payment__result">
+                        <img src="img/price-card.png" alt="">
+                        <div class="price">
+                            <p>Стоимость заказа:</p>
+                            <p>500 ₽</p>
+                        </div>
+                        <div class="price__delivery">
+                            <p>Стоимость доставки:</p>
+                            <p>500 ₽</p>
+                        </div>
+                        <div class="promo">
+                            Промокод: CJtys80
+                        </div>
+                        <div class="result__price">
+                            <p>Общая сумма:</p>
+                            <p>1 500 ₽</p>
+                        </div>
+                        <button class="buy__btn">перейти к оплате</button>
+                        <div class="check">
+                            Нажимая на кнопку «оплатить заказ»,
+                            вы соглашаетесь с условиями использования
+                            и обработки персональных данных
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container conteiner__footer">
+            <div class="left__info">
+                <img src="img/footer-logo.png" alt="" class="footer__logo">
+                <div class="footer__requisites">
+                    <h3 class="footer__requisites__title">Реквизиты: </h3>
+                    <ul>
+                        <li>
+                            <p>ИП Иванова Ольга Ивановна</p>
+                        </li>
+                        <li>
+                            <p>ИНН 317110100013192</p>
+                        </li>
+                        <li>
+                            <p>ОГРН 110406257510</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right__info">
+                <div class="footer__company">
+                    <h3 class="footer__company__title">Наша компания</h3>
+                    <ul>
+                        <li>
+                            <a href="#">Работы</a>
+                        </li>
+                        <li>
+                            <a href="#">О нас</a>
+                        </li>
+                        <li>
+                            <a href="#">Часто задаваемый вопросы (FAQ)</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__social">
+                    <h3 class="footer__social__title">Следи на нами</h3>
+                    <ul>
+                        <li>
+                            <ul class="footer__social__items">
+                                <li class="footer__social-inst"><a href="#"></a></li>
+                                <li class="footer__social-vk"><a href="#"></a></li>
+                                <li class="footer__social-fb"><a href="#"></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">stellumo@mail.ru</a>
+                        </li>
+                        <li>
+                            <a href="#">8 (999) 989 55 43</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer__copyright">
+            <div class="container conteiner__footer__copyright">
+                <ul>
+                    <li>© Stellumo</li>
+                    <li>Пользовательское соглашение</li>
+                    <li>Политика конфиденциальности</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.min.js"></script>
+    <script src="js/slick/slick.min.js"></script>
+    <script src="js/script.slider.js"></script>
+</body>
+</html>
