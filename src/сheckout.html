@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css"/>
 </head>
 <body>
-    <header class="header">
+    <header class="header desctop__menu">
         <div class="container container__header">
             <nav class="header__nav">
                 <ul>
@@ -27,15 +27,53 @@
                     <li class="header__nav">
                         <a href="#">Доставка</a> 
                         <a href="#"><span></span>Подарочный сертификат</a>
-                        <div class="header__right">
-                            <a href="#" class="header__language"><p>ru</p> <p>eng</p></a> 
-                            <a href="basket.html" class="header__basket"></a>
-                        </div>
                     </li>
                 </ul>
             </nav>
         </div>
+        <div class="header__right">
+            <a href="#" class="header__language"><p>ru</p> <p>eng</p></a> 
+            <a href="basket.html" class="header__basket"></a>
+        </div>
     </header>
+    <header class="header mobile__menu">
+        <button class="menu__btn" id="menu_btn"></button>
+        <div class="header__nav">
+            <a href="index.html" class="header__logo">
+                <img src="img/Frame 98.png" alt="" class="logo__img">
+            </a>
+        </div>
+        <div class="header__right">
+            <a href="#" class="header__language"><p>ru</p></a> 
+            <a href="basket.html" class="header__basket"></a>
+        </div>
+    </header> 
+    <nav class="hidden__mobile__menu"  style="display: none;">
+        <ul>
+            <li>
+                <ul>
+                    <li>О нас</li>
+                    <li>Заказать</li>
+                    <li>Pаботы</li>
+                    <li>Доставка</li>
+                    <li>Подарочный сертификат</li>
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li>
+                        <ul class="footer__social__items">
+                            <li class="footer__social-inst"><a href="#"></a></li>
+                            <li class="footer__social-vk"><a href="#"></a></li>
+                            <li class="footer__social-fb"><a href="#"></a></li>
+                        </ul>
+                    </li>
+                    <li>stellumo@mail.ru</li>
+                    <li>8 (999) 989 55 43</li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
     <section class="payment">
         <div class="container container__payment">
             <h2 class="payment__title">Оформление заказа</h2>
