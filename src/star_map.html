@@ -109,7 +109,7 @@
                                 <div class="item__select">
                                     <p class="select__title">Выберете стиль:</p>
                                     <div class="select__content">
-                                        <div class="content__option">
+                                        <div class="content__option active">
                                             <span class="option__icon"></span>
                                             <img src="img/map__style/map1.png" alt="">
                                         </div>
@@ -130,6 +130,7 @@
                                             <img src="img/map__style/map2.png" alt="">
                                         </div>
                                     </div>
+                                    <p class="dop__text">цвет в печатном варианте может незначительно отличаться от цвета на экране.</p>
                                 </div>
                             </div>
                             <div class="list__item">
@@ -138,20 +139,13 @@
                             </div>
                             <div class="list__item--hidden">
                                 <div class="item__select">
-                                    <p class="select__title">Выберете тип оформления:</p>
-                                    <div class="select__content">
-                                        <button class="type__style type__style--active">Классика</button>
-                                        <button class="type__style">Лофт</button>
-                                        <button class="type__style">Хюгге</button>
-                                        <button class="type__style">Нордик</button>
-                                        <button class="type__style">Сканди</button>
-                                        <button class="type__style">Сканди</button>
-                                    </div>
-                                </div>
-                                <div class="item__select">
-                                    <p class="select__title">Выберете стиль:</p>
-                                    <div class="select__content">
-                                        
+                                    <p class="select__title">Выберете название населенного пункта:</p>
+                                    <div class="change__city">
+                                        <input type="text" class="map__town" placeholder="Введите название города">
+                                        <div class="map__inputIcon">
+                                            <span class="map__inputIcon__icon"></span>
+                                            <p>Карта</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -159,23 +153,18 @@
                                 <span class="click__icon"></span>
                                 <p class="list__text">Подписи</p>
                             </div>
-                            <div class="list__item--hidden">
+                            <div class="list__item--hidden podpis">
                                 <div class="item__select">
-                                    <p class="select__title">Выберете тип оформления:</p>
-                                    <div class="select__content">
-                                        <button class="type__style type__style--active">Классика</button>
-                                        <button class="type__style">Лофт</button>
-                                        <button class="type__style">Хюгге</button>
-                                        <button class="type__style">Нордик</button>
-                                        <button class="type__style">Сканди</button>
-                                        <button class="type__style">Сканди</button>
-                                    </div>
+                                    <p class="select__title">Заголовок 1</p>
+                                    <input type="text" class="input_podpis" placeholder="город">
                                 </div>
                                 <div class="item__select">
-                                    <p class="select__title">Выберете стиль:</p>
-                                    <div class="select__content">
-                                        
-                                    </div>
+                                    <p class="select__title">Заголовок 2</p>
+                                    <input type="text" class="input_podpis" placeholder="город">
+                                </div>
+                                <div class="item__select">
+                                    <p class="select__title">Заголовок 3</p>
+                                    <input type="text" class="input_podpis" placeholder="координаты">
                                 </div>
                             </div>
                             <div class="list__item">
@@ -183,27 +172,61 @@
                                 <p class="list__text">Формат</p>
                             </div>
                             <div class="list__item--hidden">
-                                <div class="item__select">
-                                    <p class="select__title">Выберете тип оформления:</p>
+                                <div class="item__select format">
                                     <div class="select__content">
-                                        <button class="type__style type__style--active">Классика</button>
-                                        <button class="type__style">Лофт</button>
-                                        <button class="type__style">Хюгге</button>
-                                        <button class="type__style">Нордик</button>
-                                        <button class="type__style">Сканди</button>
-                                        <button class="type__style">Сканди</button>
+                                        <button class="size__version type__style type__style--active">Версия для скачивания</button>
+                                        <button class="size__version type__style">Печатный постер</button>
                                     </div>
                                 </div>
-                                <div class="item__select">
-                                    <p class="select__title">Выберете стиль:</p>
-                                    <div class="select__content">
-                                        
+                                <div class="item__select format">
+                                    <p class="select__title">Размер:</p>
+                                    <div class="form-field checked-form checked-form_question">
+                                        <p>
+                                            <input type="radio" id="test1" name="radio-group" checked="">
+                                            <label for="test1">21х30 см</label>
+                                        </p>
+                                        <p>
+                                            <input type="radio" id="test2" name="radio-group">
+                                            <label for="test2">21х30 см</label>
+                                        </p>
+                                        <p>
+                                            <input type="radio" id="test3" name="radio-group">
+                                            <label for="test3">21х30 см</label>
+                                        </p>
+                                        <p>
+                                            <input type="radio" id="test4" name="radio-group">
+                                            <label for="test4">21х30 см</label>
+                                        </p>
                                     </div>
+                                </div>
+                                <div class="item__select format">
+                                    <p class="select__title">Ориетация:</p>
+                                    <div class="select__content">
+                                        <button class="type__style type__style--active">Книжая</button>
+                                        <button class="type__style">Альбомная</button>
+                                    </div>
+                                </div>
+                                <div class="item__select border">
+                                    <p class="select__title">Рамка:</p>
+                                    <div class="select__content">
+                                        <button class="type__style type__style--not"><span class="diagonal__line"></span> Нет</button>
+                                        <button class="type__style type__style--black type__style--active">Черная</button>
+                                        <button class="type__style type__style--white">Белая</button>
+                                    </div>
+                                    <img src="img/black-border.png" alt="">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button class="add__basket">Добавить в корзину</button>
+                    <button class="add__basket">
+                        <div class="left">
+                            <span class="basket_icon"></span>
+                            <p>Добавить в корзину</p> 
+                        </div>
+                        <div class="right">
+                            <p>500 ₽</p> 
+                        </div>
+                    </button>
                 </div>
             </div>
         </div>

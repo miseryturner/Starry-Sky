@@ -1,3 +1,5 @@
+//списки на странице редактирования карты
+
 let list_item = document.getElementsByClassName('list__item'); 
 let list_item_hidden = document.getElementsByClassName('list__item--hidden'); 
 let click_icon = document.getElementsByClassName('click__icon');
@@ -13,6 +15,8 @@ for (let i = 0; i < list_item.length; i++) {
         }
     });
 }
+
+//Вопросы на главной странице
 
 let item__visible = document.getElementsByClassName('item--visible');
 let item__hidden = document.getElementsByClassName('item--hidden');
@@ -30,6 +34,7 @@ for (let i = 0; i < item__visible.length; i++) {
     });
 }
 
+// меню в мобильной версии
 let menu_btn = document.getElementById('menu_btn');
 let hidden__mobile__menu = document.getElementsByClassName('hidden__mobile__menu');
 let header__nav = document.getElementsByClassName('header__nav');
@@ -51,3 +56,22 @@ menu_btn.addEventListener('click', () => {
     }
     
 });
+
+//выбор формата для карты
+
+let format = document.getElementsByClassName('size__version');
+let item__selectBorder = document.querySelector('.item__select.border');
+
+for (let i = 0; i < format.length; i++) {
+    format[i].addEventListener('click', () => {
+        if(i == 0) {
+            format[0].classList.add('type__style--active');
+            format[1].classList.remove('type__style--active');
+            item__selectBorder.style.display = 'none';
+        } else {
+            format[1].classList.add('type__style--active');
+            format[0].classList.remove('type__style--active');
+            item__selectBorder.style.display = 'block';
+        }
+    })
+}

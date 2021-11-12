@@ -1400,10 +1400,201 @@ ul.footer__social__items {
                             transform: rotate(90deg);
                         }
                     }
+                    .list__item--hidden.zodiacs {
+                        .select__content {
+                            justify-content: flex-start !important;
+                            button:not(:nth-child(3)) {
+                                margin-right: 20px;
+                            }
+                        }
+                    }
+                    .list__item--hidden.podpis {
+                        p {
+                            margin-bottom: 5px !important;
+                        }
+                        input {
+                            margin-bottom: 20px !important;
+                        }
+                    }
+                    .list__item--hidden:not(:last-child) {
+                        border-bottom: 1px solid #D9D9D9;
+                    }
                     .list__item--hidden {
                         display: none;
                         padding: 40px 40px 80px 40px;
+                        .input_podpis {
+                            background: #F7F6F9;
+                            border: 1px solid #ABA8C0;
+                            -webkit-box-sizing: border-box;
+                            box-sizing: border-box;
+                            border-radius: 4px;
+                            padding: 10px;
+                            width: 100%;
+                            font-family: Open Sans;
+                            font-style: normal;
+                            font-weight: 600;
+                            text-transform: uppercase;
+                            font-size: 12px;
+                            line-height: 24px;
+                            color: #737373;
+                        }
+                        .item__select.border {
+                            display: none;
+                            img {
+                                width: 100%;
+                            }
+                            .type__style--black.type__style--active {
+                                background-color: #000;
+                                color: #fff;
+                            }
+                            .type__style--black:hover {
+                                background-color: #000 !important;
+                                color: #fff !important;
+                            }
+                            .type__style--white:hover {
+                                background-color: #fff !important;
+                                color: #000 !important;
+                            }
+                            .type__style--not:hover {
+                                background-color: inherit !important;
+                                color: #000 !important;
+                                box-shadow: 0px 0px 0px inset !important;
+                                border: 1px solid #ABA8C0 !important;
+                                color: #ABA8C0 !important;
+                                .diagonal__line {
+                                    display: block;
+                                    width: 135px;
+                                    height: 2px;
+                                    background-color: #D9D9D9;
+                                    position: absolute;
+                                    transform: rotate(344deg);
+                                    
+                                }
+                            }
+                        }
+                        .item__select.format {
+                            button {
+                                width: 48% !important;
+                            }
+                            .checked-form {
+                                display: flex;
+                                flex-wrap: wrap;
+                                p {
+                                    width: 50%;
+                                }
+                                label {
+                                    margin-bottom: 20px;
+                                }
+                                [type="radio"]:checked,
+                                [type="radio"]:not(:checked) {
+                                    position: absolute;
+                                    left: -9999px;
+                                }
+                                [type="radio"]:checked + label,
+                                [type="radio"]:not(:checked) + label
+                                {
+                                    position: relative;
+                                    padding-left: 28px;
+                                    cursor: pointer;
+                                    line-height: 20px;
+                                    display: inline-block;
+                                    color: #666;
+                                    font-family: Open Sans;
+                                    font-style: normal;
+                                    font-weight: 600;
+                                    font-size: 16px;
+                                    line-height: 32px;
+                                    color: #000000;
+                                }
+                                [type="radio"]:checked + label:before,
+                                [type="radio"]:not(:checked) + label:before {
+                                    content: '';
+                                    position: absolute;
+                                    left: 0;
+                                    top: 7px;
+                                    width: 20px;
+                                    height: 20px;
+                                    border-radius: 100%;
+                                    background: #fff;
+                                    border: 2px solid #ABA8C0;
+                                    box-sizing: border-box;
+                                    border-radius: 100px;
+                                }
+                                [type="radio"]:checked + label:after,
+                                [type="radio"]:not(:checked) + label:after {
+                                    content: '';
+                                    width: 10px;
+                                    height: 10px;
+                                    background: #F87DA9;
+                                    position: absolute;
+                                    top: 12px;
+                                    left: 5px;
+                                    background: #ABA8C0;
+                                    border-radius: 10px;
+                                    -webkit-transition: all 0.2s ease;
+                                    transition: all 0.2s ease;
+                                }
+                                [type="radio"]:not(:checked) + label:after {
+                                    opacity: 0;
+                                    -webkit-transform: scale(0);
+                                    transform: scale(0);
+                                }
+                                [type="radio"]:checked + label:after {
+                                    opacity: 1;
+                                    -webkit-transform: scale(1);
+                                    transform: scale(1);
+                                }
+                            }
+                            .checked-form > div {
+                                display: flex;
+                                .text_radio {
+                                    display: flex;
+                                    flex-direction: column;
+                                }
+                            }
+                        }
                         .item__select {
+                            .change__city {
+                                position: relative;
+                                .map__inputIcon {
+                                    position: absolute;
+                                    top: 11px;
+                                    right: 10px;
+                                    display: flex;
+                                    align-items: baseline;
+                                    p {
+                                        font-family: Open Sans;
+                                        font-style: normal;
+                                        font-weight: normal;
+                                        font-size: 12px;
+                                        line-height: 24px;
+                                        color: #737373;
+                                    }
+                                    span {
+                                        display: block;
+                                        width: 11px;
+                                        height: 13px;
+                                        background-image: url('../img/map_marker.svg');
+                                        margin-right: 5px;
+                                    }
+                                }
+                            }
+                            .map__town {
+                                background: #F7F6F9;
+                                border: 1px solid #ABA8C0;
+                                -webkit-box-sizing: border-box;
+                                box-sizing: border-box;
+                                border-radius: 4px;
+                                padding: 10px;
+                                width: 100%;
+                                font-family: Open Sans;
+                                font-style: normal;
+                                font-weight: 600;
+                                text-transform: uppercase;
+                                font-size: 12px;
+                                line-height: 24px;
+                                color: #737373;
+                            }
                             .select__title {
                                 font-family: Open Sans;
                                 font-style: normal;
@@ -1413,12 +1604,52 @@ ul.footer__social__items {
                                 color: #2D2661;
                                 margin-bottom: 20px;
                             }
+                            .dop__text {
+                                font-family: Open Sans;
+                                font-style: normal;
+                                font-weight: 600;
+                                font-size: 12px;
+                                line-height: 24px;
+                                color: #737373;
+                                text-transform: uppercase;
+                            }
                             .select__content {
+                                
                                 display: flex;
                                 justify-content: space-between;
                                 flex-wrap: wrap;
                                 .content__option {
                                     margin-bottom: 15px;
+                                    cursor: pointer;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    img {
+                                        transition: 0.3s;
+                                    }
+                                }
+                                .content__option.active {
+                                    .option__icon {
+                                        display: block;
+                                        z-index: 10;
+                                    }
+                                    img {
+                                        filter: brightness(0.3);
+                                    }
+                                }
+                                
+                                .option__icon {
+                                    display: none;
+                                    position: absolute;
+                                    width: 16px;
+                                    height: 16px;
+                                    background-image: url('../img/active_map.svg');
+                                    background-size: contain;
+                                }
+                                .content__option:not(.active):hover {
+                                    img {
+                                        filter: brightness(0.3);
+                                    }
                                 }
                                 button.type__style {
                                     margin-bottom: 20px;
@@ -1426,7 +1657,6 @@ ul.footer__social__items {
                                     justify-content: center;
                                     align-items: center;
                                     width: 131px;
-                                    height: 40px;
                                     border: 1px solid #ABA8C0;
                                     box-sizing: border-box;
                                     font-family: Open Sans;
@@ -1437,13 +1667,13 @@ ul.footer__social__items {
                                     color: #ABA8C0;
                                     cursor: pointer;
                                     transition: .5s;
+                                    min-height: 40px;
                                 }
                                 button.type__style:hover {
                                     display: flex;
                                     justify-content: center;
                                     align-items: center;
                                     width: 131px;
-                                    height: 40px;
                                     border: 0;
                                     background: #2D2661;
                                     box-shadow: 0px 8px 15px #AEACBD;
@@ -1459,7 +1689,6 @@ ul.footer__social__items {
                                     justify-content: center;
                                     align-items: center;
                                     width: 131px;
-                                    height: 40px;
                                     border: 0;
                                     background: #2D2661;
                                     box-shadow: 0px 8px 15px #AEACBD;
@@ -1477,14 +1706,34 @@ ul.footer__social__items {
             }
             .add__basket {
                 display: flex;
-                justify-content: center;
+                justify-content: space-between;
                 cursor: pointer;
                 border: 0;
                 margin-top: 307px;
                 width: 100%;
                 padding: 40px 34px;
                 background: #2D2661;
-                color: #F7F6F9;
+                p {
+                    font-family: Open Sans;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 24px;
+                    line-height: 32px;
+                    color: #F7F6F9;
+                }
+                .left {
+                    display: flex;
+                    align-items: center;
+                    span {
+                        display: block;
+                        background-image: url(../img/basket__add.svg);
+                        background-size: contain;
+                        width: 18px;
+                        height: 24px;
+                        margin-right: 20px;
+                        background-repeat: no-repeat;
+                    }
+                }
             }
         }
         .map_left {
@@ -1512,10 +1761,6 @@ ul.footer__social__items {
     
     .header__basket {
         margin: auto auto auto 33px;
-    }
-
-    .logo__img {
-        width: 140px;
     }
     .header li.header__nav a:not(:last-child) {
         margin-right: 15px;
@@ -1561,6 +1806,10 @@ ul.footer__social__items {
 @media (max-width:1200px) {
     .header__right {
         margin: 0;
+    }
+    
+    .logo__img {
+        width: 140px;
     }
 }
 @media (max-width:470px) {
@@ -1724,6 +1973,17 @@ ul.footer__social__items {
                 max-width: none;
             }
         }
+    }
+    .map .container__map .map_right .add__basket p {
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 32px;
+        color: #F7F6F9;
+    }
+    .map .container__map .map_right .map_characteristic .characteristic__list .list__item--hidden.zodiacs .select__content button:not(:nth-child(2)) {
+        margin-right: 13px !important;
     }
 }
 
