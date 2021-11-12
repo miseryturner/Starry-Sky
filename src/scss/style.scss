@@ -5,6 +5,16 @@
     list-style: none;
     box-sizing: border-box;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
 
 p {
     margin: 0;
@@ -282,6 +292,42 @@ ul {
         line-height: 18px;
     }
 }
+.success h1 {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 38px;
+    line-height: 44px;
+    color: #2D2661;
+    text-align: center;
+    margin-top: 145px;
+    margin-bottom: 100px;
+}
+.container__deliver__all {
+    display: flex;
+    margin-bottom: 166px;
+    img {
+        margin-right: 30px;
+        margin-left: 30px;
+    }
+    .text {
+        min-height: 350px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        p {
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 32px;
+            color: #000000;
+        }
+        p:last-child {
+            min-height: 100px;
+        }
+    }
+}
 
 .container__success {
     font-family: Open Sans;
@@ -345,7 +391,7 @@ ul {
             display: flex;
             align-items: center;
             margin-top: 60px;
-            margin-bottom: 60px;
+            margin-bottom: 20px;
             p {
                 margin: 0;
                 margin-top: 20px;
@@ -1553,7 +1599,150 @@ ul.footer__social__items {
                                 }
                             }
                         }
+                        .item__select--inline {
+                            display: flex;
+                            justify-content: space-between;
+                            flex-wrap: wrap;
+                            margin-top: 50px;
+                            .item__select {
+                                p {
+                                    margin-bottom: 5px;
+                                }
+                                min-width: 207px;
+                            }
+                            .item__select:first-child {
+                                .map__inputIcon {
+                                    height: 50%;
+                                    span {
+                                        width: 16px !important;
+                                        height: 16px !important;
+                                        background-image: url('../img/date_icon.svg') !important;
+                                    }
+                                }
+                            }
+                            .item__select:last-child {
+                                .map__inputIcon {
+                                    height: 50%;
+                                    span {
+                                        width: 15.2px !important;
+                                        height: 15.2px !important;
+                                        background-image: url('../img/time_icon.svg') !important;
+                                    }
+                                }
+                            }
+                        }
                         .item__select {
+                            .toggle-btn {
+                                display: flex;
+                                align-items: center;
+                                margin-top: 0;
+                                margin-bottom: 0;
+                                p {
+                                    margin: 0;
+                                    margin-top: 20px;
+                                    margin-right: 13px;
+                                    font-family: Open Sans;
+                                    font-style: normal;
+                                    font-weight: 600;
+                                    font-size: 14px;
+                                    line-height: 32px;
+                                    /* identical to box height, or 229% */
+
+                                    display: flex;
+                                    align-items: center;
+                                    letter-spacing: 0.2px;
+
+                                    /* Звездное небо/основной */
+
+                                    color: #2D2661;
+                                }
+                                /* прячем стандартный чекбокс */
+                                input[type="checkbox"] {
+                                    display: none;
+                                }
+                    
+                                /* стили для метки */
+                                input[type="checkbox"] + label {
+                                    cursor: pointer;
+                                    padding-left: 50px;
+                                    position: relative;
+                                    font-family: tahoma, sans-serif, arial;
+                                    line-height: 40px;
+                                }
+                    
+                                /* стили для поля с бегунком*/
+                                input[type="checkbox"] + label::before {
+                                    content: "";
+                                    display: inline-block;
+                                    position: absolute;
+                                    top: 0;
+                                    top: 4px;
+                                    left: 0;
+                                    vertical-align: middle;
+                                    padding: 0;
+                                    height: 14px;
+                                    width: 34px;
+                                    margin: 0 5px 0 0;
+                                    border-radius: 12px;
+                                    background: #ABA8C0;
+                                }
+                    
+                                /* стили для бегунка*/
+                                input[type="checkbox"] + label::after {
+                                    content: "";
+                                    display: block;
+                                    position: absolute;
+                                    top: 1px;
+                                    left: 0px;
+                                    width: 20px;
+                                    height: 20px;
+                                    border-radius: 22px;
+                                    background: #E0E0E0;
+                                    box-shadow: 0px 0.1px 0.3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.2);
+                                    
+                                }
+                    
+                                /* плавность )) */
+                                input[type="checkbox"] + label::before,
+                                input[type="checkbox"] + label::after {
+                                    -webkit-transition: all .2s ease-out;
+                                    transition: all .2s ease-out;
+                                }
+                    
+                                /* чекнутое состояние )) */
+                                input[type="checkbox"]:checked + label::after {
+                                    left: 14px;
+                                }
+                                
+                                /* прячем стандартный чекбокс */
+                                input[type="checkbox"] {
+                                    display: none;
+                                }
+                                
+                                /* стили для метки */
+                                input[type="checkbox"] + label {
+                                    cursor: pointer;
+                                    padding-left: 50px;
+                                    position: relative;
+                                    font-family: tahoma, sans-serif, arial;
+                                    line-height: 40px;
+                                }
+                                
+                                /* плавность )) */
+                                input[type="checkbox"] + label::before,
+                                input[type="checkbox"] + label::after {
+                                    -webkit-transition: all .2s ease-out;
+                                    transition: all .2s ease-out;
+                                }
+                                
+                                /* чекнутое состояние )) */
+                                input[type="checkbox"]:checked + label::after {
+                                    background: #2D2661;
+                                }
+                                input[type="checkbox"]:checked + label::after {
+                                    left: 14px;
+                                }
+                            }
                             .change__city {
                                 position: relative;
                                 .map__inputIcon {
@@ -1561,7 +1750,7 @@ ul.footer__social__items {
                                     top: 11px;
                                     right: 10px;
                                     display: flex;
-                                    align-items: baseline;
+                                    align-items: center;
                                     p {
                                         font-family: Open Sans;
                                         font-style: normal;
@@ -1572,10 +1761,12 @@ ul.footer__social__items {
                                     }
                                     span {
                                         display: block;
-                                        width: 11px;
-                                        height: 13px;
+                                        width: 13px;
+                                        height: 16px;
                                         background-image: url('../img/map_marker.svg');
                                         margin-right: 5px;
+                                        background-repeat: no-repeat;
+                                        background-size: cover;
                                     }
                                 }
                             }
@@ -1748,6 +1939,12 @@ ul.footer__social__items {
         }
     }
 }
+.delivery__dontMe {
+    background: #FFFFFF;
+    border-radius: 4px;
+    padding: 30px 22px;
+    margin-bottom: 60px;
+}
 
 @media (max-width: 1590px) {
     .main {
@@ -1855,7 +2052,35 @@ ul.footer__social__items {
 .mobile__menu {
     display: none !important;
 }
+
+.header__present {
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('../img/present.svg');
+    margin-right: 5px;
+}
+
 @media (max-width:1085px) {
+    .success h1 {
+        margin-top: 50px;
+        margin-bottom: 40px;
+    }
+    .container__deliver__all {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 50px;
+        .text {
+            justify-content: start;
+            min-height: auto;
+            > p:first-child {
+                margin-bottom: 30px;
+            }
+        }
+    }
     main.main {
         overflow: hidden;
         .main__info {

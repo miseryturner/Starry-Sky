@@ -25,8 +25,8 @@
                         </a>
                     </li>
                     <li class="header__nav">
-                        <a href="#">Доставка</a> 
-                        <a href="#"><span></span>Подарочный сертификат</a>
+                        <a href="delivery_all_world.htm">Доставка</a> 
+                        <a href="#"><span class="header__present"></span>Подарочный сертификат</a>
                     </li>
                 </ul>
             </nav>
@@ -119,6 +119,28 @@
                                     </div>
                                     <p class="dop__text">цвет в печатном варианте может незначительно отличаться от цвета на экране.</p>
                                 </div>
+                                <div class="item__select">
+                                    <div class="toggle-btn">
+                                        <p>Заливка фона</p>
+                                        <input id="checkbox1" type="checkbox">
+                                        <label for="checkbox1"></label>
+                                    </div>
+                                    <div class="toggle-btn">
+                                        <p>Сетка</p>
+                                        <input id="checkbox2" type="checkbox">
+                                        <label for="checkbox2"></label>
+                                    </div>
+                                    <div class="toggle-btn">
+                                        <p>Созвездия</p>
+                                        <input id="checkbox3" type="checkbox">
+                                        <label for="checkbox3"></label>
+                                    </div>
+                                    <div class="toggle-btn">
+                                        <p>Млечный путь</p>
+                                        <input id="checkbox4" type="checkbox">
+                                        <label for="checkbox4"></label>
+                                    </div>
+                                </div>
                             </div>
                             <div class="list__item">
                                 <span class="click__icon"></span>
@@ -135,12 +157,36 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="item__select--inline">
+                                    <div class="item__select">
+                                        <p class="select__title">Дата:</p>
+                                        <div class="change__city">
+                                            <input type="text" class="map__town" placeholder="дд/мм/гг">
+                                            <div class="map__inputIcon">
+                                                <span class="map__inputIcon__icon"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item__select">
+                                        <p class="select__title">Время:</p>
+                                        <div class="change__city">
+                                            <input type="text" class="map__town" placeholder="--:--">
+                                            <div class="map__inputIcon">
+                                                <span class="map__inputIcon__icon"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="list__item">
                                 <span class="click__icon"></span>
                                 <p class="list__text">Подписи</p>
                             </div>
                             <div class="list__item--hidden podpis">
+                                <div class="item__select">
+                                    <p class="select__title">Послание /</p>
+                                    <input type="text" class="input_podpis" placeholder="введите послание">
+                                </div>
                                 <div class="item__select">
                                     <p class="select__title">Заголовок 1</p>
                                     <input type="text" class="input_podpis" placeholder="город">
