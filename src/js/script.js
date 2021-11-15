@@ -12,6 +12,12 @@ for (let i = 0; i < list_item.length; i++) {
         } else {
             list_item_hidden[i].style.display = 'block';
             click_icon[i].classList.add('click__icon--open');
+            for (let j = 0; j < list_item.length; j++) {
+                if(list_item_hidden[j] != list_item_hidden[i]) {
+                    list_item_hidden[j].style.display = 'none';
+                    click_icon[j].classList.remove('question__plus--minus');
+                }
+            }
         }
     });
 }
@@ -30,6 +36,12 @@ for (let i = 0; i < item__visible.length; i++) {
         } else {
             item__hidden[i].style.display = 'block';
             question__plus[i].classList.add('question__plus--minus');
+            for (let j = 0; j < item__visible.length; j++) {
+                if(item__hidden[j] != item__hidden[i]) {
+                    item__hidden[j].style.display = 'none';
+                    question__plus[j].classList.remove('question__plus--minus');
+                }
+            }
         }
     });
 }
@@ -75,3 +87,13 @@ for (let i = 0; i < format.length; i++) {
         }
     })
 }
+
+let header = $('.header');
+    
+$(window).scroll(function() {
+    if($(this).scrollTop() > 200) {
+        header.addClass('header_fixed');
+    } else {
+        header.removeClass('header_fixed');
+    }
+});
