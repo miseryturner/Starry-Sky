@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="js/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css"/>
+</head>
+<body>
+    <header class="header desctop__menu">
+        <div class="container container__header">
+            <nav class="header__nav">
+                <ul>
+                    <li class="header__nav">
+                        <a href="about.html">О нас</a>
+                        <a href="star_map.html">Заказать</a>
+                        <a href="#">Pаботы</a>
+                    </li>
+                    <li>
+                        <a href="index.html" class="header__logo">
+                            <img src="img/Frame 98.png" alt="" class="logo__img">
+                        </a>
+                    </li>
+                    <li class="header__nav">
+                        <a href="delivery_all_world.htm">Доставка</a> 
+                        <a href="#"><span class="header__present"></span>Подарочный сертификат</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header__right">
+            <a href="#" class="header__language"><p>ru</p> <p>eng</p></a> 
+            <a href="basket.html" class="header__basket"></a>
+        </div>
+    </header>
+    <header class="header mobile__menu">
+        <button class="menu__btn" id="menu_btn"></button>
+        <div class="header__nav">
+            <a href="index.html" class="header__logo">
+                <img src="img/Frame 98.png" alt="" class="logo__img">
+            </a>
+        </div>
+        <div class="header__right">
+            <a href="#" class="header__language"><p>ru</p></a> 
+            <a href="basket.html" class="header__basket"></a>
+        </div>
+    </header> 
+    <nav class="hidden__mobile__menu"  style="display: none;">
+        <ul>
+            <li>
+                <ul>
+                    <li>О нас</li>
+                    <li>Заказать</li>
+                    <li>Pаботы</li>
+                    <li>Доставка</li>
+                    <li>Подарочный сертификат</li>
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li>
+                        <ul class="footer__social__items">
+                            <li class="footer__social-inst"><a href="#"></a></li>
+                            <li class="footer__social-vk"><a href="#"></a></li>
+                            <li class="footer__social-fb"><a href="#"></a></li>
+                        </ul>
+                    </li>
+                    <li>stellumo@mail.ru</li>
+                    <li>8 (999) 989 55 43</li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <section class="map">
+        <div class="container__map">
+            <div class="map_left">
+                <img src="img/child.png" alt="">
+            </div>
+            <div class="map_right">
+                <div class="map_characteristic">
+                    <div class="map__top">
+                        <div class="title__block">
+                            <h1 class="map__title">Детская серия</h1>
+                            <p class="map__info">
+                                Укажите место, текст, выберите цвет и оформление,
+                                а также размеры постера и рамку
+                            </p>
+                        </div>
+                        <div class="characteristic__list">
+                            <div class="list__item">
+                                <span class="click__icon"></span>
+                                <p class="list__text">Стиль</p>
+                            </div>
+                            <div class="list__item--hidden">
+                                <div class="item__select">
+                                    <p class="select__title">Выберете тип оформления:</p>
+                                    <div class="select__content">
+                                        <button class="type__style type__style--active">Сканди</button>
+                                        <button class="type__style">Норди</button>
+                                        <button class="type__style">Сканди</button>
+                                        <button class="type__style">Норди</button>
+                                        <button class="type__style">Сканди</button>
+                                        <button class="type__style">Норди</button>
+                                        <button class="type__style">Сканди</button>
+                                    </div>
+                                </div>
+                                <div class="item__select">
+                                    <p class="select__title">Выберете стиль:</p>
+                                    <div class="select__content">
+                                        <button class="type__style type__style--active">Сканди</button>
+                                        <button class="type__style">Норди</button>
+                                        <button class="type__style">Сканди</button>
+                                        <button class="type__style">Норди</button>
+                                        <button class="type__style">Сканди</button>
+                                        <button class="type__style">Сканди</button>
+                                    </div>
+                                    <p class="dop__text">цвет в печатном варианте может незначительно отличаться от цвета на экране.</p>
+                                </div>
+                                <div class="item__select">
+                                    <div class="toggle-btn">
+                                        <p>Заливка фона</p>
+                                        <input id="checkbox1" type="checkbox">
+                                        <label for="checkbox1"></label>
+                                    </div>
+                                    <div class="toggle-btn">
+                                        <p>Сетка</p>
+                                        <input id="checkbox2" type="checkbox">
+                                        <label for="checkbox2"></label>
+                                    </div>
+                                    <div class="toggle-btn">
+                                        <p>Созвездия</p>
+                                        <input id="checkbox3" type="checkbox">
+                                        <label for="checkbox3"></label>
+                                    </div>
+                                    <div class="toggle-btn">
+                                        <p>Млечный путь</p>
+                                        <input id="checkbox4" type="checkbox">
+                                        <label for="checkbox4"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list__item">
+                                <span class="click__icon"></span>
+                                <p class="list__text">Локация</p>
+                            </div>
+                            <div class="list__item--hidden">
+                                <div class="item__select">
+                                    <p class="select__title">Выберете название населенного пункта:</p>
+                                    <div class="change__city">
+                                        <input type="text" class="map__town" placeholder="Введите название города">
+                                        <div class="map__inputIcon">
+                                            <span class="map__inputIcon__icon"></span>
+                                            <p>Карта</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item__select--inline">
+                                    <div class="item__select">
+                                        <p class="select__title">Дата:</p>
+                                        <div class="change__city">
+                                            <input type="text" class="map__town" placeholder="дд/мм/гг">
+                                            <div class="map__inputIcon">
+                                                <span class="map__inputIcon__icon"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item__select">
+                                        <p class="select__title">Время:</p>
+                                        <div class="change__city">
+                                            <input type="text" class="map__town" placeholder="--:--">
+                                            <div class="map__inputIcon">
+                                                <span class="map__inputIcon__icon"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list__item">
+                                <span class="click__icon"></span>
+                                <p class="list__text">Подписи</p>
+                            </div>
+                            <div class="list__item--hidden podpis">
+                                <div class="item__select">
+                                    <p class="select__title">Послание</p>
+                                    <textarea type="text" class="input_podpis" placeholder="введите послание"></textarea>
+                                </div>
+                                <div class="item__select">
+                                    <p class="select__title">Заголовок 1</p>
+                                    <input type="text" class="input_podpis" placeholder="Страна">
+                                </div>
+                                <div class="item__select">
+                                    <p class="select__title">Заголовок 2</p>
+                                    <input type="text" class="input_podpis" placeholder="город">
+                                </div>
+                                <div class="item__select">
+                                    <p class="select__title">Заголовок 3</p>
+                                    <input type="text" class="input_podpis" placeholder="Дата / время">
+                                </div>
+                                <div class="item__select">
+                                    <p class="select__title">Заголовок 4</p>
+                                    <input type="text" class="input_podpis" placeholder="координаты">
+                                </div>
+                            </div>
+                            <div class="list__item">
+                                <span class="click__icon"></span>
+                                <p class="list__text">Формат</p>
+                            </div>
+                            <div class="list__item--hidden">
+                                <div class="item__select format">
+                                    <div class="select__content">
+                                        <button class="size__version type__style type__style--active">Версия для скачивания</button>
+                                        <button class="size__version type__style">Печатный постер</button>
+                                    </div>
+                                </div>
+                                <div class="item__select format">
+                                    <p class="select__title">Размер:</p>
+                                    <div class="form-field checked-form checked-form_question">
+                                        <p>
+                                            <input type="radio" id="test1" name="radio-group" checked="">
+                                            <label for="test1">21х30 см</label>
+                                        </p>
+                                        <p>
+                                            <input type="radio" id="test2" name="radio-group">
+                                            <label for="test2">21х30 см</label>
+                                        </p>
+                                        <p>
+                                            <input type="radio" id="test3" name="radio-group">
+                                            <label for="test3">21х30 см</label>
+                                        </p>
+                                        <p>
+                                            <input type="radio" id="test4" name="radio-group">
+                                            <label for="test4">21х30 см</label>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="item__select border">
+                                    <p class="select__title">Рамка:</p>
+                                    <div class="select__content">
+                                        <button class="type__style type__style--not"><span class="diagonal__line"></span> Нет</button>
+                                        <button class="type__style type__style--black type__style--active">Черная</button>
+                                        <button class="type__style type__style--white">Белая</button>
+                                    </div>
+                                    <img src="img/black-border.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add__basket">
+                        <div class="left">
+                            <span class="basket_icon"></span>
+                            <p>Добавить в корзину</p> 
+                        </div>
+                        <div class="right">
+                            <p>500 ₽</p> 
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container conteiner__footer">
+            <div class="left__info">
+                <img src="img/footer-logo.png" alt="" class="footer__logo">
+                <div class="footer__requisites">
+                    <h3 class="footer__requisites__title">Реквизиты: </h3>
+                    <ul>
+                        <li>
+                            <p>ИП Иванова Ольга Ивановна</p>
+                        </li>
+                        <li>
+                            <p>ИНН 317110100013192</p>
+                        </li>
+                        <li>
+                            <p>ОГРН 110406257510</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right__info">
+                <div class="footer__company">
+                    <h3 class="footer__company__title">Наша компания</h3>
+                    <ul>
+                        <li>
+                            <a href="#">Работы</a>
+                        </li>
+                        <li>
+                            <a href="#">О нас</a>
+                        </li>
+                        <li>
+                            <a href="#">Часто задаваемый вопросы (FAQ)</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__social">
+                    <h3 class="footer__social__title">Следи на нами</h3>
+                    <ul>
+                        <li>
+                            <ul class="footer__social__items">
+                                <li class="footer__social-inst"><a href="#"></a></li>
+                                <li class="footer__social-vk"><a href="#"></a></li>
+                                <li class="footer__social-fb"><a href="#"></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">stellumo@mail.ru</a>
+                        </li>
+                        <li>
+                            <a href="#">8 (999) 989 55 43</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer__copyright">
+            <div class="container conteiner__footer__copyright">
+                <ul>
+                    <li>© Stellumo</li>
+                    <li>Пользовательское соглашение</li>
+                    <li>Политика конфиденциальности</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.min.js"></script>
+    <script src="js/slick/slick.min.js"></script>
+    <script src="js/script.slider.js"></script>
+</body>
+</html>
