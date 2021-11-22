@@ -15,7 +15,7 @@ for (let i = 0; i < list_item.length; i++) {
             for (let j = 0; j < list_item.length; j++) {
                 if(list_item_hidden[j] != list_item_hidden[i]) {
                     list_item_hidden[j].style.display = 'none';
-                    click_icon[j].classList.remove('question__plus--minus');
+                    click_icon[j].classList.remove('click__icon--open');
                 }
             }
         }
@@ -87,6 +87,8 @@ for (let i = 0; i < format.length; i++) {
         }
     })
 }
+
+//Фиксированная шапка
 
 let header = $('.header');
     
