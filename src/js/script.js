@@ -3,15 +3,18 @@
 let list_item = document.getElementsByClassName('list__item'); 
 let list_item_hidden = document.getElementsByClassName('list__item--hidden'); 
 let click_icon = document.getElementsByClassName('click__icon');
+let add__basket = document.getElementsByClassName('add__basket');
 
 for (let i = 0; i < list_item.length; i++) {
     list_item[i].addEventListener('click', () => {
         if(list_item_hidden[i].style.display == 'block') {
             list_item_hidden[i].style.display = 'none';
             click_icon[i].classList.remove('click__icon--open');
+            add__basket[0].style.marginTop = '307px';
         } else {
             list_item_hidden[i].style.display = 'block';
             click_icon[i].classList.add('click__icon--open');
+            add__basket[0].style.marginTop = '0';
             for (let j = 0; j < list_item.length; j++) {
                 if(list_item_hidden[j] != list_item_hidden[i]) {
                     list_item_hidden[j].style.display = 'none';
