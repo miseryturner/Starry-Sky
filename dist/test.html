@@ -1,0 +1,168 @@
+
+<!DOCTYPE html><html><head><script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer', 'GTM-58RLHXH');</script><script>
+      window.dataLayer = window.dataLayer || []; function gtag() {
+        dataLayer.push(arguments);
+      }
+      
+      gtag('js', new Date());
+      gtag('config', 'G-252258307');
+      gtag('config', 'UA-90411842-11', { 'send_page_view': false });  
+      gtag('config', 'AW-853456199', { 'optimize_id': 'GTM-WG7RVBW' });
+    </script><script>!function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    </script><script>
+    (function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
+    {a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
+    a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
+    r.src=n;var u=t.getElementsByTagName(s)[0];
+    u.parentNode.insertBefore(r,u);})(window,document,
+    'https://sc-static.net/scevent.min.js');
+    snaptr('init', 'daca7cd8-c72a-434c-bc5f-102185f4c587');
+</script><style>html, body {
+      background: #EFF2F6;
+      height: 100%;
+      min-height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+
+      * {
+        -webkit-overflow-scrolling: touch;
+      }
+    }</style><script type="text/javascript">
+        // Set Page Category
+        function pad(str) {
+          return str.length === 1 ? "0" + str : str;
+        }
+
+        function getGa4Date(d) {
+          return d.toLocaleDateString("en-IE") + " " + pad(d.getHours()) + ":" + pad(d.getMinutes()) + ":" +  pad(d.getSeconds()) + ""
+        }
+
+        function logGa4Event(customerId) {
+          try {
+            // // Log GA4 event
+            dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+            dataLayer.push({
+              page_category: "Checkout",
+              event: "checkoutOption",
+              ecommerce: {
+                checkout_option: {
+                  actionField: { step: 3, option: "AmazonPay" }
+                }
+              },
+              user_id: customerId || "",
+              date_time: getGa4Date(new Date()),
+            });
+          } catch (error) {
+            console.error("Error", error);
+          }
+        }
+        
+        window.showAmazonButton = function (buttonId, payload, signature, publicKeyId, currency, amount, language, customerId) {
+          const options = {
+            merchantId: 'A3QZSUX2R8AI4L',
+            ledgerCurrency: 'USD',
+            sandbox: false,
+            // customize the buyer experience
+            checkoutLanguage: language || 'en_US',
+            productType: 'PayAndShip',
+            placement: 'Cart',
+            buttonColor: 'Gold',
+            // // configure Create Checkout Session request
+            // createCheckoutSessionConfig: {
+            //   payloadJSON: JSON.stringify(payload),
+            //   signature: signature,
+            //   publicKeyId: publicKeyId
+            // }
+          };
+
+          var amazonPayButton = amazon.Pay.renderButton(buttonId, options);
+
+          amazonPayButton.onClick(function() {
+            let action = "InitiatePaymentSession";
+            if (window && window.location && window.location.href && window.location.href.indexOf("/cart") >= 0) {
+              action = "InitiatePaymentSession_Cart";
+            }
+            if (window && window.location && window.location.href && window.location.href.indexOf("/payment") >= 0) {
+              action = "InitiatePaymentSession_Payment";
+            }
+
+            // Log GA4 Event
+            logGa4Event(customerId);
+            
+            ga('send', {
+              hitType: 'event',
+              eventCategory: 'PaymentMethod',
+              eventAction: action,
+              eventLabel: 'AmazonPay',
+              eventValue: amount
+            });
+
+            amazon.Pay.initCheckout({
+              ...options,
+              // configure Create Checkout Session request
+              createCheckoutSessionConfig: {
+                payloadJSON: JSON.stringify(payload),
+                signature: signature,
+                publicKeyId: publicKeyId
+              }
+            });
+          });
+        };
+
+        window.amazonPayBindChangeAddress = function (buttonId, checkoutSessionId) {
+          if (buttonId && buttonId !== "" && checkoutSessionId && checkoutSessionId !== "") {
+            amazon.Pay.bindChangeAction(buttonId, {
+              amazonCheckoutSessionId: checkoutSessionId,
+              changeAction: 'changeAddress'
+            });
+          }
+        };
+      </script><script src="https://static-na.payments-amazon.com/checkout.js"></script><script id="stripe-js" src="https://js.stripe.com/v3/" async=""></script><script src="https://x.klarnacdn.net/kp/lib/v1/api.js" async=""></script><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJ0fTlIK_ii5SQemJjVX4FWiBX-lyGkXA&amp;libraries=places&amp;language=en-US"></script><meta property="fb:app_id" content="270296713425007"/><meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/solid-terra-252716.appspot.com/o/assets%2Fmetaimage.jpg?alt=media&amp;token=2bde5bf8-5a6d-44af-97b4-c0bc0a425417"/><meta property="og:site_name" content="The Night Sky"/><meta property="og:url" content="https://thenightsky.com"/><meta property="og:title" content="A Star Map of The Night Your Heart Skipped a Beat"/><meta property="og:type" content="website"/><meta property="og:description" content="Create your very own unique star map."/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="A Star Map of The Night Your Heart Skipped a Beat"/><meta name="twitter:description" content="Create your very own unique star map."/><link rel="icon" type="image/x-icon" href="https://s3.thenightsky.com/web/favicon.ico"/><script type="text/javascript">!function(e){if(!window.pintrk){window.pintrk=function(){window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var n=window.pintrk;n.queue=[],n.version="3.0";var t=document.createElement("script");t.async=!0,t.src=e;var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
+      pintrk('load', '2620790907344');
+      pintrk('page');</script><noscript><img height="1" width="1" style="display:none" alt="" src="https://ct.pinterest.com/v3/?tid=2620790907344&amp;noscript=1"/></noscript><script type="text/javascript" src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async=""></script><meta charSet="utf-8"/><title>The Night Sky</title><meta name="viewport" content="width=device-width, shrink-to-fit=no, user-scalable=yes, initial-scale=1"/><link rel="preload" href="/_next/static/css/styles.355d2078.chunk.css" as="style"/><link rel="stylesheet" href="/_next/static/css/styles.355d2078.chunk.css" data-n-g=""/><link rel="preload" href="/_next/static/css/6ccb6c8c37c809b88ad64454dece534aafea8475_CSS.cd1efdb8.chunk.css" as="style"/><link rel="stylesheet" href="/_next/static/css/6ccb6c8c37c809b88ad64454dece534aafea8475_CSS.cd1efdb8.chunk.css" data-n-p=""/><noscript data-n-css="true"></noscript><link rel="preload" href="/_next/static/chunks/main-49e30991bae9bc96981f.js" as="script"/><link rel="preload" href="/_next/static/chunks/webpack-1225ab1cd121eec8f135.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.8683c114909ee93ee89f.js" as="script"/><link rel="preload" href="/_next/static/chunks/75fc9c18.f19b3b2ac98aa7d8e31a.js" as="script"/><link rel="preload" href="/_next/static/chunks/commons.4503d402e5457d303156.js" as="script"/><link rel="preload" href="/_next/static/chunks/9bfb6f3bc84667c6afd6d1b093c51cc4ba7dc05e.31709e6789014fb5c002.js" as="script"/><link rel="preload" href="/_next/static/chunks/432d900a6afbf47e38a33d8f23aea9346cc7f132.ce888604100f02590e8f.js" as="script"/><link rel="preload" href="/_next/static/chunks/cd4293fb77f72e8ffde9c319e000ac69a2a1f799.226148c7107412428887.js" as="script"/><link rel="preload" href="/_next/static/chunks/styles.7dd7ad7e73074cd2711b.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/_app-fce56f7cd28ea8e31bf0.js" as="script"/><link rel="preload" href="/_next/static/chunks/6ccb6c8c37c809b88ad64454dece534aafea8475.4c9047f77ea4b9d9106c.js" as="script"/><link rel="preload" href="/_next/static/chunks/6ccb6c8c37c809b88ad64454dece534aafea8475_CSS.c3c33dcc23d96beb9452.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/design-49c0311962b282e0fd81.js" as="script"/><style data-styled="" data-styled-version="5.2.1"></style></head><body><noscript><iframe title="GoogleTagManager" src="https://www.googletagmanager.com/ns.html?id=GTM-58RLHXH" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><script id="gorgias-chat-widget-install">!function(_){_.GORGIAS_CHAT_APP_ID="4941",_.GORGIAS_CHAT_BASE_URL="us-east1-898b.production.gorgias.chat",_.GORGIAS_API_BASE_URL="config.gorgias.chat";var e=new XMLHttpRequest;e.open("GET","https://config.gorgias.chat/applications/4941",!0),e.onload=function(t){if(4===e.readyState)if(200===e.status){var n=JSON.parse(e.responseText);if(!n.application||!n.bundleVersion)throw new Error("Missing fields in the response body - https://config.gorgias.chat/applications/4941");if(_.GORGIAS_CHAT_APP=n.application,_.GORGIAS_CHAT_BUNDLE_VERSION=n.bundleVersion,n&&n.texts&&(_.GORGIAS_CHAT_TEXTS=n.texts),n&&n.sspTexts&&(_.GORGIAS_CHAT_SELF_SERVICE_PORTAL_TEXTS=n.sspTexts),!document.getElementById("gorgias-chat-container")){var o=document.createElement("div");o.id="gorgias-chat-container",document.body.appendChild(o);var r=document.createElement("script");r.setAttribute("defer",!0),r.src="https://storage.googleapis.com/gorgias-chat-production-client-builds/{bundleVersion}/static/js/main.js".replace("{bundleVersion}",n.bundleVersion),document.body.appendChild(r)}}else console.error("Failed request GET - https://config.gorgias.chat/applications/4941")},e.onerror=function(_){console.error(_)},e.send()}(window||{});</script><div id="__next"></div><script id="__NEXT_DATA__" type="application/json">{"props":{"initialI18nStore":{"en":{"cart":{"customStarMap":"Night Sky","customOrrery":"Planets Aligned","productInfo":"Product Info","edit":"Edit Your {{productName}}","remove":"Remove Print","addAnother":"Add Another","discountPercentSuccess":"You got {{percentage}}% off!","canvas":"Canvas","frame":"Frame","square":"Square","framingService":"Framing Service","addFramingService":"Add Framing Service","framingServiceDesc":"If you're short on time we now provide a framing service for your Night Sky. Created from high-quality wood, milled with simple clean lines and presented with a satin finish. The frame has a square, modern profile that works well in both contemporary and traditional environments.","frameChosen":"frame chosen","wood":"Wood Frame","white":"White Frame","black":"Black Frame","framingProduction":"Framing adds three business days to production.","addGiftNote":"Add a gift note","giftNoteSell":"Make it personal with a special gift note","giftNote":"Gift Note","giftNoteDesc":"Add a personalized gift note that we will print and add to the packaging.","fastFreeShipping":"Fast and tracked shipping","fedExExpressShipment":"FedEx Express shipment","quality":"+200gsm Premium Quality","securePayments":"Secured and Verified Payments","giftCardOrDiscount":"Gift Card or Discount Code","discountError":"This code is valid, but please contact customer support to use it.","enterDiscount":"Enter Discount","apply":"Apply","subtotal":"Subtotal","shipping":"Shipping","calculated":"Calculated at next step","total":"Total","buyNow":"Buy Now","error":"Error","errorValid":"Please enter a valid {{ validWhat }} to checkout.","errorEmail":"Please enter a valid email","errorFirstName":"Please enter your first name","errorLastName":"Please enter your last name","errorAddress":"Please enter your address","errorCity":"Please enter a vaild city","errorState":"Please enter a vaild state or county","errorZipCode":"Please enter a vaild zip code","errorPhone":"Please enter a valid telephone number to checkout.","contactDetails":"Contact Details","shippingAddress":"Shipping Address","email":"Enter Email","name":"Name","firstName":"First name","lastName":"Last name","address":"Address","city":"City","state":"State","zipcode":"Zip code","phone":"Phone (Optional - helps with delivery)","phoneNonOpt":"Phone (helps with delivery)","returnToCart":"Return to cart","continueToShipping":"Continue to Shipping","editCart":"Edit cart","formEmail":"Email","formFirstName":"First Name","formLastName":"Last Name","formAddress":"Address","formCity":"City","formState":"State","formZipCode":"Zip Code","dimensions":"Dimensions","orientation":"Orientation","color":"Color","date":"Date","textQuote":"Text quote","removeFrame":"Remove Frame","activeDiscount":"You got {{ formatted }} off","couponWorthLess":"That coupon was worth less, so we didn't apply it.","beautifulPoetic":"Beautiful, Poetic, One of a kind","change":"Change","shipTo":"Ship To","billTo":"Bill To","shippingMethod":"Shipping Method","standard":"Standard","express":"Express","returnToInformation":"Return to information","continueToPayment":"Continue to Payment","billing":"Billing address","sameAsShipping":"Same as Shipping Address","differentBilling":"Use a different billing address","returnToShipping":"Return to Shipping","pay":"Pay","ssl":"SSL certified Payment","poweredByStripe":"Powered by Stripe","timeForExtra":"While we are processing your order you still have time to get something extra into the delivery.","localFramer":"We always recommend your local framer - but if you're short on time we do offer a quality framing service. It only adds three days to production and the frame itself is a high-quality frame, milled with simple clean lines and presented with a satin finish.","localFramerSuggestion":"We always recommend you get your Night Sky printed at your local printer but if you would like to print at home then we have some suggestions in your email.","noThanks":"No Thanks","startAnotherOrder":"Start another order","congratulations":"Congratulations!","orderHasBeenProcessed":"Your order has been processed! You should receive an email confirmation with all the details soon.","orderId":"Your Order ID is:","manageYourOrder":"You can manage your order on our","statusPage":"status page","trackingLink":"You will receive a tracking link as soon as it has shipped.","downloadLink":"You should have an email with your link to your download page.","thankYou":"Thank you for letting us be part of what we know is a special occasion","teamNightSky":"Team Night Sky","teamName":"Team {{brandNameShort}}","yes":"Yes","no":"No","none":"None","customPrint":"Custom {{ product }} Print","customCanvas":"Custom Canvas {{ product }}","customFramed":"Custom Framed {{ product }}","customDigital":"Custom Digital {{ product }}","whenOrderBy":"When would you like your order by?","editSection":"Edit","shippingTo":"Shipping to:","standardShipping":"Standard Shipping","expressShipping":"Express Shipping","free":"FREE","trackedDeliveryStart":"Tracked - estimated delivery between","trackedDeliveryEnd":"business days","oneShippingOption":"This product only has one shipping option to your location","or":"Or","changeShippingCountry":"Change shipping country","usingStandard":"Using standard shipping","usingExpress":"Using express shipping","responsibleMade":"Made one at a time and shipped responsibly - for a happier planet","paymentMethod":"Payment Method","payByCc":"Pay by Credit Card","payingxx":"Paying {{amount}}","payxx":"Pay {{amountToPay}}","changedCountry":"You changed your country. Please double check shipping costs as they may have changed.","reviewAndPay":"Review and Pay","savePaymentDetails":"I want to save my payment details.","createdWithConscience":"Created with conscience","conscienceCopy":"We work with OneTreePlanted.org to plant one tree for every ten prints! We are a carbon neutral company.","fastResponsible":"Fast and Reponsible Delivery","fastResponsibleCopy":"To minimise transportation we produce your night sky in a print lab closest to you. We now have 10 print labs throughout the world.","exceptionalQuality":"Exceptional Quality","exceptionalQualityCopy":"Printed on museum grade paper sourced from FSC forests and printed using water based using archival ink, your Night Sky is created to last generations.","superService":"Super Service","superServiceCopy":"Hassle free returns and super friendly customer support.","weAreOnIt":"We are on it!","orderNoIs":"Your order number is","orderConfirmShortly":"You should receive an order confirmation email shortly.","timeForUpgrade":"You still have time to take advantage of some {{ product }} Upgrades!","fastLane":"You're In The Fast Lane","updated":"Updated","shippingUpgradedExpress":"Your shipping has been upgraded to express and you should expect your {{ product }} to delivered by","productionTime":"It will take approximately 2 days to produce your print, read more about how the process works here. Once your order has been printed we will hand it to the courier and you will receive a tracking code.","checkOrderProgress":"You check the status of your order at anytime using by viewing your Order Progress Page","upgradedToFrame":"Upgraded to Frame","upgradeToFrameSuccess":"Your print has been upgraded with our framing service!","estimatedDelivery":"Your estimated delivery date is","estimatedDeliveryShort":"Estimated delivery","upgradedToCanvas":"Upgraded to Canvas","upgradedToCanvasSuccess":"Your print has been upgraded with our canvas printing service!","getItFaster":"Get it faster","addExpress":"Add Express Shipping and receive it by","estDelivery":"Est Delivery","upgradeWithAFrame":"Upgrade with a Frame","upgradeToCanvas":"Upgrade to Canvas","upgradeFrameText":"If your short on time we have a framing service that can frame your print with a high quality wood frame. It has simple clean lines and works in both contemporary and traditional environments.","framingNb":"NB: Framing Service adds 3 days to production.","upgradeToCanvasText":"Our enduringly popular fine art canvases transform any Night Sky into a beautiful work of art. Each canvas is produced using a 12-colour giclée fine art printing process and hand finished by an experienced canvas framing team.","Pendant":"Pendant","Remove Item":"Remove Item","Created with Conscience":"Created with Conscience","discountPercent":"{{percentage}}% off your second"},"common":{"jan":"January","feb":"February","mar":"March","apr":"April","may":"May","jun":"June","jul":"July","aug":"August","sep":"September","oct":"October","nov":"November","dec":"December"},"design":{"tns":"The Night Sky","tnsCreate":"Create Your Night Sky","tnsPromotionalAgree":"I agree to receive exclusive savings, updates and info.","tnsReviewYour":"Review Your Night Sky","tnsBeSure":"We want to be sure your Night Sky is exactly as you remember it.","tpa":"The Planets Aligned","tpaCreate":"Create Your Custom Solar System","tpaPromotionalAgree":"I agree to receive exclusive savings, updates and info.","tpaReviewYour":"Review Your Planets Aligned","tpaBeSure":"We want to be sure your Planets Aligned is exactly as you remember it.","nsm":"Night Sky Maps","nsmCreate":"Create A Night Sky Map","nsmPromotionalAgree":"I agree to receive exclusive savings, updates and info.","nsmReviewYour":"Review Your Night Sky Map","nsmBeSure":"We want to be sure your Night Sky Map is exactly as you remember it.","never forget":"Never forget the night your heart skipped a beat","black":"Black","midnightblue":"Midnight Blue","greyblue":"Grey Blue","aquamarine":"Aquamarine","vintageblue":"Vintage Blue","softgrey":"Soft Grey","jade":"Jade","mauve":"Mauve","burntorange":"Burnt Orange","babyblue":"Baby Blue","blackWhite":"Black / White","midnightblueWhite":"Midnight Blue / White","greyblueWhite":"Grey Blue / White","aquamarineWhite":"Aquamarine / White","vintageblueWhite":"Vintage Blue / White","softgreyWhite":"Soft Grey / White","jadeWhite":"Jade / White","mauveWhite":"Mauve / White","burntorangeWhite":"Burnt Orange / White","babyblueWhite":"Baby Blue / White","theme":"Theme options","landscape":"Landscape","white":"On White","constellations":"Constellations","grid":"Grid","moon":"Moon","seeTheSkyFrom":"Where do you want to see the sky from?","chooseLocation":"Choose your location","specialOccasion":"When was your special occasion?","addText":"Add text on your star map","tpaAddText":"Add text to your Planets Aligned","tpaChooseFormat":"Choose Format","advanced":"Advanced options","subtitle":"Subtitle text","location":"Location text","lat":"Latitude","lng":"Longitude","show time":"Show Time","continue":"CONTINUE","saveYourDesign":"Save Your Design","enterYourEmailToGetACopy":"Enter your email and we will send you a copy of your map that you can edit or purchase at any time.","enterYourEmail":"Enter Your Email","saveMyDesign":"Save My Design","noThanks":"No Thanks","changeSomething":"Need to change something?","review":"Review","chooseTheme":"Choose Theme","chooseYourTheme":"Choose Your Theme","haveConstellations":"Have constellations, a grid or leave it as simple as stars in the sky.","perfectMoment":"So that you never forget that perfect moment.","makeItPersonal":"Make it personal","forgotLocation":"You forgot to provide a location.","lines":"Lines","N":"N","S":"S","E":"E","W":"W","exactTime":"Exact time","oops":"Oops!","you forgot to provide a location":"You forgot to provide a location.","buyDigitalPrints":"BUY DIGITAL PRINTS","english":"English","german":"Deutsche","spanish":"Español","portugese":"Português","french":"Français","italian":"Italiano","polish":"Polskie","dutch":"Nederlands","frame":"Frame","canvas":"Canvas","print":"Print Only","digital":"Digital","printDesc":"Printed on museum grade art matte paper and printed using archival inks. Your {{productName}} is designed to last generations.","stretchedCanvas":"Stretched Canvas","stretchedCanvasDesc":"Our enduringly popular fine art canvases transform any {{productName}} into a beautiful work of art. Each canvas is produced using a 12-colour giclée fine art printing process and hand finished by an experienced canvas framing team.","removeCanvas":"Remove Canvas","addCanvas":"Add Canvas","removeDigital":"Remove Digital","addDigital":"Add Digital","selectDigital":"Select Digital","selectPrint":"Select Matte Print","selectCanvas":"Select Stretched Canvas","canvasNb":"NB: Printing on Stretched Canvas adds three business days to production.","framingService":"Framing Service","frameServiceDesc":"If you're short on time we provide a framing service for your {{productName}}. Created from high-quality wood, milled in simple clean lines and presented with a stain finish. The frame has a square, modern profile that works well in both contemporary and traditional surroundings.","woodFrame":"Wood Frame","blackFrame":"Black Frame","whiteFrame":"White Frame","frameingServiceNb":"NB: Framing adds three business days to production.","chooseLayout":"Choose Layout","portrait":"Portrait","square":"Square","printSize":"Print Size","format":"Format","frames":"Frames","canvasUpgrade":"Canvas Upgrade","frameUpgrade":"Frame upgrade","printType":"{{productName}} Print","digitalType":"{{productName}} Digital","subtotal":"Subtotal","addToCart":"Add to cart","personalizeLc":"Personalize","personalize":"PERSONALIZE","chooseView":"Choose View","left":"Left","middle":"Middle","right":"Right","invertBorder":"Invert Border","dwarfPlanets":"Dwarf Planets","pluto":"Pluto","planetColors":"Planet Colors","showLegend":"Show Legend","Map Options":"Map Options","Edit Text":"Edit Text"}}},"initialLanguage":"en","i18nServerInstance":null,"pageProps":{}},"page":"/design","query":{"tnscc":"RU","_gl":"1*1utqvgg*_ga*MTQyMTY3NTU2NC4xNjM3NjY5MDQ0*_ga_MZYJR7Z874*MTYzOTEyNzczNy4yLjAuMTYzOTEyNzczNy42MA..","_ga":"2.134353143.747785852.1639127739-1421675564.1637669044"},"buildId":"2uqKqlQ3-iO_CDaxuFG2Q","isFallback":false,"appGip":true,"head":[["meta",{"charSet":"utf-8"}],["title",{"children":"The Night Sky"}],["meta",{"name":"viewport","content":"width=device-width, shrink-to-fit=no, user-scalable=yes, initial-scale=1"}]]}</script><script nomodule="" src="/_next/static/chunks/polyfills-c1bf2f10d4340515f992.js"></script><script src="/_next/static/chunks/main-49e30991bae9bc96981f.js" async=""></script><script src="/_next/static/chunks/webpack-1225ab1cd121eec8f135.js" async=""></script><script src="/_next/static/chunks/framework.8683c114909ee93ee89f.js" async=""></script><script src="/_next/static/chunks/75fc9c18.f19b3b2ac98aa7d8e31a.js" async=""></script><script src="/_next/static/chunks/commons.4503d402e5457d303156.js" async=""></script><script src="/_next/static/chunks/9bfb6f3bc84667c6afd6d1b093c51cc4ba7dc05e.31709e6789014fb5c002.js" async=""></script><script src="/_next/static/chunks/432d900a6afbf47e38a33d8f23aea9346cc7f132.ce888604100f02590e8f.js" async=""></script><script src="/_next/static/chunks/cd4293fb77f72e8ffde9c319e000ac69a2a1f799.226148c7107412428887.js" async=""></script><script src="/_next/static/chunks/styles.7dd7ad7e73074cd2711b.js" async=""></script><script src="/_next/static/chunks/pages/_app-fce56f7cd28ea8e31bf0.js" async=""></script><script src="/_next/static/chunks/6ccb6c8c37c809b88ad64454dece534aafea8475.4c9047f77ea4b9d9106c.js" async=""></script><script src="/_next/static/chunks/6ccb6c8c37c809b88ad64454dece534aafea8475_CSS.c3c33dcc23d96beb9452.js" async=""></script><script src="/_next/static/chunks/pages/design-49c0311962b282e0fd81.js" async=""></script><script src="/_next/static/2uqKqlQ3-iO_CDaxuFG2Q/_buildManifest.js" async=""></script><script src="/_next/static/2uqKqlQ3-iO_CDaxuFG2Q/_ssgManifest.js" async=""></script><script>
+    var gorgiasChatInterval = window.setInterval(function () {
+      try {
+        var iframe = document.querySelector('#gorgias-chat-container');
+        if (iframe) { 
+          var head = iframe.contentWindow.document.querySelector('head')
+          if (head.children.length) {
+            window.clearInterval(gorgiasChatInterval); // this line breaks out of the loop - make sure it's not deleted.        
+            var styles = document.createElement('style');
+            styles.textContent = '.logo-wrapper{display: none}'
+            head.appendChild(styles)
+          }
+        }
+      } catch (error) {
+        // ignore iframe access error error and cancel interval
+        try {
+          window.clearInterval(gorgiasChatInterval);
+        } catch {
+          // ignore
+        }
+      }
+    }, 100);</script><script>!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+    },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+    a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+    twq('init','o3xcr');
+    twq('track','PageView');</script><script>
+        /* <![CDATA[ */
+    var google_conversion_id = 853456199;
+    var google_custom_params = window.google_tag_params;
+    var google_remarketing_only = true;
+    /* ]]> */ 
+</script><script src="//www.googleadservices.com/pagead/conversion.js"></script></body></html>

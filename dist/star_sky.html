@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="js/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css"/>
+    <script type="text/javascript" src="library/lib/d3.min.js"></script>
+    <script type="text/javascript" src="library/lib/d3.geo.projection.min.js"></script>
+    <script type="text/javascript" src="library/celestial.min.js"></script>
+    <link rel="stylesheet" href="library/celestial.css">
+    <style type="text/css">
+    .btnPlanet { display: inline-block; font: bold 14pt Consolas; margin: 0 6px; padding: 2px 6px; border: 2px solid #000; border-radius: 3px; background: rgba(204, 204, 255, 0.6) }
+    </style>
 </head>
 <body>
     <header class="header desctop__menu">
@@ -77,7 +84,26 @@
     <section class="map">
         <div class="container__map">
             <div class="map_left">
-                <img src="img/star_sky.png" alt="">
+                <div class="star_sky_block">
+                    <p class="title_star">
+                        Под этим звёздным небом началась наша история
+                    </p>
+                    <div class="circle_star_sky">
+                        <div id="follow"></div>
+                        <div style="overflow:hidden;">
+                            <div id="celestial-map"></div>
+                        </div>
+                    </div>
+                    <p class="countre_text">
+                        Москва, Россия
+                    </p>
+                    <p class="date_text">
+                        20 июля 2020 года
+                    </p>
+                    <p class="location_text">
+                        123123123123123123
+                    </p>
+                </div>
             </div>
             <div class="map_right">
                 <div class="map_characteristic">
@@ -261,6 +287,7 @@
             </div>
         </div>
     </section>
+    
     <footer class="footer">
         <div class="container conteiner__footer">
             <div class="left__info">
@@ -328,5 +355,6 @@
     <script src="js/script.min.js"></script>
     <script src="js/slick/slick.min.js"></script>
     <script src="js/script.slider.js"></script>
+    <script src="js/star.js"></script>
 </body>
 </html>

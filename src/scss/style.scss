@@ -1971,6 +1971,42 @@ ul.footer__social__items {
                 height: 798px;
                 margin-top: 40px;
             }
+            .star_sky_block {
+                width: 570px;
+                height: 798px;
+                margin-top: 40px;
+                background: #646361;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 40px;
+                border: 15px solid #cacaca;
+                p {
+                    color: #fff;
+                }
+                .title_star {
+                    text-transform: uppercase;
+                    text-align: center;
+                    margin-bottom: 40px;
+                    margin-top: 30px;
+                }
+                .circle_star_sky {
+                    border: 15px solid #e1e2e2;
+                    width: 80%;
+                    height: 486px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    margin-bottom: 40px;
+                }
+                #celestial-map {
+                    width: 100%;
+                    min-width:auto;
+                    canvas {
+                        width: 100% !important;
+                        height: 486px !important;
+                    }
+                }
+            }
         }
     }
 }
@@ -1981,6 +2017,13 @@ ul.footer__social__items {
     margin-bottom: 60px;
 }
 
+//3d map start ---->
+
+label.header {
+    display: none !important;
+}
+
+//<---- 3d map end 
 @media (max-width: 1590px) {
     .main {
         min-height: auto;

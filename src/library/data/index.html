@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+    <title>Data Formats | ofrohn.github.io</title>
+    <meta name="generator" content="Jekyll v3.9.0" />
+    <meta property="og:title" content="Data Formats" />
+    <meta property="og:locale" content="en_US" />
+    <link rel="canonical" href="http://ofrohn.github.io/data/" />
+    <meta property="og:url" content="http://ofrohn.github.io/data/" />
+    <meta property="og:site_name" content="ofrohn.github.io" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Data Formats" />
+    <script type="application/ld+json">
+        {
+            "headline": "Data Formats",
+            "url": "http://ofrohn.github.io/data/",
+            "@type": "WebPage",
+            "@context": "https://schema.org"
+        }
+    </script>
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="style.css">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+    <!-- Setup Google Analytics -->
+
+
+
+    <!-- You can set your favicon here -->
+    <!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+    <!-- end custom head snippets -->
+
+</head>
+
+<body>
+    <div class="container-lg px-3 my-5 markdown-body">
+
+        <h1><a href="http://ofrohn.github.io/">ofrohn.github.io</a></h1>
+
+
+        <h1 id="data-formats">Data Formats</h1>
+
+        <p>For GeoJSON, all coordinates need to be given in degrees, longitude as [-180…180] deg, latitude as [-90…90] deg</p>
+
+        <h2 id="stars">Stars</h2>
+
+        <p><code class="language-plaintext highlighter-rouge">stars.6.json</code>, <code class="language-plaintext highlighter-rouge">stars.8.json</code>, <code class="language-plaintext highlighter-rouge">stars.14.json</code>: the number indicates limit
+            magnitude
+        </p>
+
+        <div class="language-js highlighter-rouge">
+            <div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">FeatureCollection</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">features</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Feature</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>        <span class="c1">// Hipparcos number</span>
+    <span class="dl">"</span><span class="s2">properties</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">mag</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>     <span class="c1">// Apparent magnitude</span>
+      <span class="dl">"</span><span class="s2">bv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>       <span class="c1">// b-v color index</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">geometry</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>  
+      <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Point</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">coordinates</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="nx">lon</span><span class="p">,</span> <span class="nx">lat</span><span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="p">{</span> <span class="p">}</span> <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+        </div>
+
+        <h2 id="starnames">Starnames</h2>
+
+        <p><code class="language-plaintext highlighter-rouge">starnames.json</code>: Magnitude independent, all stars with a name/designation other than HIP/HD</p>
+
+        <div class="language-js highlighter-rouge">
+            <div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>         <span class="c1">// Hipparcos number  </span>
+   <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>      <span class="c1">// Proper name  </span>
+    <span class="p">...</span>             <span class="c1">// and names in 17 further languages (see list in main readme)</span>
+   <span class="dl">"</span><span class="s2">desig</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>     <span class="c1">// Standard designation, first from list below  </span>
+   <span class="dl">"</span><span class="s2">bayer</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>     <span class="c1">// Bayer  </span>
+   <span class="dl">"</span><span class="s2">flam</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>      <span class="c1">// Flamsteed  </span>
+   <span class="dl">"</span><span class="s2">var</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>       <span class="c1">// Variable star  </span>
+   <span class="dl">"</span><span class="s2">gliese</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>    <span class="c1">// Gliese  </span>
+   <span class="dl">"</span><span class="s2">hd</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>        <span class="c1">// Henry Draper</span>
+   <span class="dl">"</span><span class="s2">hip</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>        <span class="c1">// Hipparcos number again   </span>
+  <span class="p">},</span> <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="p">{...}</span>  
+<span class="p">}</span>
+</code></pre></div>
+        </div>
+
+        <p>##Traditional Chinese star and DSO names</p>
+
+        <p><code class="language-plaintext highlighter-rouge">starnames.cn.json</code>, <code class="language-plaintext highlighter-rouge">dsonames.cn.json</code>:</p>
+        <div class="language-js highlighter-rouge">
+            <div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>         <span class="c1">// Hipparcos number  </span>
+   <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>      <span class="c1">// Chinese name  </span>
+   <span class="dl">"</span><span class="s2">desig</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>     <span class="c1">// IAU designation  </span>
+   <span class="dl">"</span><span class="s2">en</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>        <span class="c1">// English translation  </span>
+   <span class="dl">"</span><span class="s2">pinyin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>     <span class="c1">// Pinyin transcription  </span>
+  <span class="p">},</span> <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="p">{...}</span>  
+<span class="p">}</span>
+</code></pre></div>
+        </div>
+
+        <h2 id="dsos">DSOs</h2>
+
+        <p><code class="language-plaintext highlighter-rouge">dsos.6.json</code>, <code class="language-plaintext highlighter-rouge">dsos.14.json</code>: the number indicates limit magnitude<br />
+            <code class="language-plaintext highlighter-rouge">dsos.bright.json</code>: hand selected<br />
+            <code class="language-plaintext highlighter-rouge">lf.json</code>: Local group<br />
+            <code class="language-plaintext highlighter-rouge">messier.json</code> Messier objects</p>
+
+        <div class="language-js highlighter-rouge">
+            <div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">FeatureCollection</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">features</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Feature</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>       <span class="c1">// Short designator</span>
+    <span class="dl">"</span><span class="s2">properties</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">desig</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>  <span class="c1">// Designator</span>
+      <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>   <span class="c1">// Object type: gg, g, s, s0, sd, i, e, oc, gc, dn, bn, sfr, rn, en, pn, snr</span>
+      <span class="dl">"</span><span class="s2">morph</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>  <span class="c1">// Morphology classification depending on type  </span>
+      <span class="dl">"</span><span class="s2">mag</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>    <span class="c1">// Apparent magnitude, 999 if n.a.  </span>
+      <span class="dl">"</span><span class="s2">dim</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>    <span class="c1">// Angular dimensions in arcminutes  </span>
+      <span class="dl">"</span><span class="s2">bv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>      <span class="c1">// Blue minus visual magnitude color inder (b-v)    </span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">geometry</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>  
+      <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Point</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">coordinates</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="nx">lon</span><span class="p">,</span> <span class="nx">lat</span><span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="p">{</span> <span class="p">}</span> <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+        </div>
+
+        <p><strong><em>Object type:</em></strong> <em>gg</em>: galaxy cluster, <em>g</em>: galaxy, <em>s</em>: spiral galaxy, <em>s0</em>: lenticular gal., <em>sd</em>: dwarf spheroidal gal., <em>i</em>: irregular gal., <em>e</em>: elliptical gal., <em>oc</em>:
+            open cluster, <em>gc</em>: globular cluster, <em>dn</em>: dark nebula, <em>bn</em>: bright nebula, <em>sfr</em>: star forming region, <em>rn</em>: reflection nebula, <em>en</em>: emission nebula, <em>pn</em>: planetary nebula, <em>snr</em>:
+            supernova remnant</p>
+
+        <p><strong><em>additional lg.json properties:</em></strong><br />
+            <em>sub</em>: Sub group membership: [MW|M31|N3109|LG] (Milky Way, Andromeda, NGC 3109, gen. LG)<br />
+            <em>pop</em>: MW populations [OH|YH|BD] (Old halo, young halo, bulge &amp; disk), M31 populations [M31|GP] (gen. M31, great plane)<br />
+            <em>str</em>: Tidal streams [Mag|Sgr|CMa|FLS] (Magellanic Stream, Sagittarius Stream, Canis Major/Monoceros Stream, Fornax-Leo-Sculptor Great Circle)</p>
+
+        <h2 id="dsonames">DSOnames</h2>
+
+        <p><code class="language-plaintext highlighter-rouge">dsonames.json</code>: Magnitude/dimension independent, all DSOs with a proper name</p>
+
+        <div class="language-js highlighter-rouge">
+            <div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>      <span class="c1">// most common designation (NGC, IC, M, ...)</span>
+  <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>  <span class="c1">// Proper name (in English)</span>
+    <span class="p">...</span>       <span class="c1">// and names in up to 17 further languages (see list in main readme)</span>
+<span class="p">}</span>
+</code></pre></div>
+        </div>
+
+        <h2 id="constellations">Constellations</h2>
+
+        <p><code class="language-plaintext highlighter-rouge">constellations.json</code></p>
+
+        <div class="language-js highlighter-rouge">
+            <div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">FeatureCollection</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">features</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Feature</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>           <span class="c1">// 3-letter designator</span>
+    <span class="dl">"</span><span class="s2">properties</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>       <span class="c1">// full IAU name</span>
+      <span class="dl">"</span><span class="s2">desig</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>      <span class="c1">// 3-letter designator again</span>
+      <span class="dl">"</span><span class="s2">gen</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>        <span class="c1">// genitive for naming stars, not yet used</span>
+      <span class="dl">"</span><span class="s2">rank</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>       <span class="c1">// 1-3 for differential name display by size/brightness</span>
+      <span class="dl">"</span><span class="s2">en</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>         <span class="c1">// english name</span>
+      <span class="p">...</span>               <span class="c1">// and names in 18 further languages (see list in main readme)</span>
+      <span class="dl">"</span><span class="s2">display</span><span class="dl">"</span><span class="p">:</span> <span class="p">[]</span>     <span class="c1">// [ra,dec,scale], for single constellation display </span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">geometry</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>  
+      <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Point</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">coordinates</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="nx">lon</span><span class="p">,</span> <span class="nx">lat</span><span class="p">]</span>  <span class="c1">// Position of const. name</span>
+    <span class="p">}</span>      
+  <span class="p">},</span> <span class="p">{</span> <span class="p">}</span> <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+        </div>
+
+        <h2 id="constellation-lines">Constellation lines</h2>
+
+        <p><code class="language-plaintext highlighter-rouge">constellations.lines.json</code>, <code class="language-plaintext highlighter-rouge">constellations.lines.cn.json</code></p>
+
+        <div class="language-js highlighter-rouge">
+            <div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">FeatureCollection</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">features</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Feature</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>           <span class="c1">// 3-letter designator of constellation</span>
+    <span class="dl">"</span><span class="s2">geometry</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>  
+      <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">MultiLineString</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">coordinates</span><span class="dl">"</span><span class="p">:</span> <span class="p">[[[</span><span class="nx">lon</span><span class="p">,</span> <span class="nx">lat</span><span class="p">],[</span><span class="nx">lon</span><span class="p">,</span> <span class="nx">lat</span><span class="p">],..],[[]</span><span class="nx">lon</span><span class="p">,</span> <span class="nx">lat</span><span class="p">,[</span><span class="nx">lon</span><span class="p">,</span> <span class="nx">lat</span><span class="p">],..],..]</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="p">{</span> <span class="p">}</span> <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+        </div>
+
+        <h2 id="constellation-boundaries">Constellation boundaries</h2>
+
+        <p><code class="language-plaintext highlighter-rouge">constellations.bounds.json</code>, <code class="language-plaintext highlighter-rouge">constellations.bounds.cn.json</code></p>
+
+        <div class="language-js highlighter-rouge">
+            <div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">FeatureCollection</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">features</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Feature</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>           <span class="c1">// 3-letter designator of constellation</span>
+    <span class="dl">"</span><span class="s2">geometry</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>  
+      <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Polygon</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">coordinates</span><span class="dl">"</span><span class="p">:</span> <span class="p">[[[</span><span class="nx">lon</span><span class="p">,</span> <span class="nx">lat</span><span class="p">],[</span><span class="nx">lon</span><span class="p">,</span> <span class="nx">lat</span><span class="p">],..]]</span>
+    <span class="p">},</span>
+  <span class="p">},</span> <span class="p">{</span> <span class="p">}</span> <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+        </div>
+
+        <p>##Traditional Chinese constellations</p>
+
+        <p><code class="language-plaintext highlighter-rouge">constellations.cn.json</code></p>
+
+        <div class="language-js highlighter-rouge">
+            <div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">FeatureCollection</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">features</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Feature</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>           <span class="c1">// numerical id</span>
+    <span class="dl">"</span><span class="s2">properties</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>       <span class="c1">// chinese name</span>
+      <span class="dl">"</span><span class="s2">en</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>         <span class="c1">// english translation</span>
+      <span class="dl">"</span><span class="s2">pinyin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>     <span class="c1">// pinyin transcription</span>
+      <span class="dl">"</span><span class="s2">desig</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>      <span class="c1">// also chinese name, for compatibility</span>
+      <span class="dl">"</span><span class="s2">rank</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>       <span class="c1">// so far only 1; differential name display by size/brightness</span>
+      <span class="dl">"</span><span class="s2">display</span><span class="dl">"</span><span class="p">:</span> <span class="p">[]</span>     <span class="c1">// [ra,dec,scale], for single constellation display </span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">geometry</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>  
+      <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Point</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">coordinates</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="nx">lon</span><span class="p">,</span> <span class="nx">lat</span><span class="p">]</span>  <span class="c1">// Position of const. name</span>
+    <span class="p">}</span>      
+  <span class="p">},</span> <span class="p">{</span> <span class="p">}</span> <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+        </div>
+
+        <h2 id="milky-way">Milky way</h2>
+
+        <p><code class="language-plaintext highlighter-rouge">mw.json</code></p>
+
+        <div class="language-js highlighter-rouge">
+            <div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">FeatureCollection</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">features</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Feature</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>       <span class="c1">// ol 1-5</span>
+    <span class="dl">"</span><span class="s2">properties</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">geometry</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">MultiPolygon</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">coordinates</span><span class="dl">"</span><span class="p">:[[[[</span><span class="nx">lon</span><span class="p">,</span> <span class="nx">lat</span><span class="p">],[</span><span class="nx">lon</span><span class="p">,</span> <span class="nx">lat</span><span class="p">],..],[[</span><span class="nx">lon</span><span class="p">,</span> <span class="nx">lat</span><span class="p">],[</span><span class="nx">lon</span><span class="p">,</span> <span class="nx">lat</span><span class="p">],..],..]]</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="p">{</span> <span class="p">}</span> <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+        </div>
+
+        <h2 id="special-planes">Special Planes</h2>
+
+        <div class="language-js highlighter-rouge">
+            <div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">FeatureCollection</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">features</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Feature</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>       
+    <span class="dl">"</span><span class="s2">geometry</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>  
+      <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LineString</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">coordinates</span><span class="dl">"</span><span class="p">:</span> <span class="p">[[</span><span class="nx">lon</span><span class="p">,</span> <span class="nx">lat</span><span class="p">],[</span><span class="nx">lon</span><span class="p">,</span> <span class="nx">lat</span><span class="p">]]</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="p">{</span> <span class="p">}</span> <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+        </div>
+
+        <h2 id="asterisms">Asterisms</h2>
+
+        <div class="language-js highlighter-rouge">
+            <div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">FeatureCollection</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">features</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Feature</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>       <span class="c1">// Name without spaces</span>
+    <span class="dl">"</span><span class="s2">properties</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">n</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>      <span class="c1">// Proper name</span>
+      <span class="dl">"</span><span class="s2">es</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>     <span class="c1">// Proper name in spanish</span>
+      <span class="dl">"</span><span class="s2">loc</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="nx">lon</span><span class="p">,</span><span class="nx">lat</span><span class="p">],</span> <span class="c1">// Center location of name string</span>
+      <span class="dl">"</span><span class="s2">p</span><span class="dl">"</span><span class="p">:</span> <span class="nx">n</span>        <span class="c1">// Priority 1..6 (~Average brighness)</span>
+                    <span class="c1">// p=6: Guiding line</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">geometry</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>  
+      <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">MultiLineString</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">coordinates</span><span class="dl">"</span><span class="p">:</span> <span class="p">[[[</span><span class="nx">lon</span><span class="p">,</span> <span class="nx">lat</span><span class="p">],[</span><span class="nx">lon</span><span class="p">,</span> <span class="nx">lat</span><span class="p">],..],[[]</span><span class="nx">lon</span><span class="p">,</span> <span class="nx">lat</span><span class="p">,[</span><span class="nx">lon</span><span class="p">,</span> <span class="nx">lat</span><span class="p">],..],..]</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="p">{</span> <span class="p">}</span> <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+        </div>
+
+        <h2 id="planets">Planets</h2>
+
+        <p>Not geojson, because positions need to be calculated by date from keplerian elements<br /> All element values in degrees, except a (AU|km) and e (dimensionless)</p>
+
+        <div class="language-js highlighter-rouge">
+            <div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:{</span>                <span class="c1">// (usually) 3-letter id</span>
+  <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>         <span class="c1">// full name</span>
+  <span class="dl">"</span><span class="s2">trajectory</span><span class="dl">"</span><span class="p">:</span> <span class="nx">bool</span><span class="p">,</span> <span class="c1">// show trajectory (tbi)</span>
+  <span class="dl">"</span><span class="s2">H</span><span class="dl">"</span><span class="p">:</span> <span class="nx">n</span><span class="p">,</span>             <span class="c1">// absolute magnitude</span>
+  <span class="dl">"</span><span class="s2">elements</span><span class="dl">"</span><span class="p">:[{</span>
+    <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">da</span><span class="dl">"</span><span class="p">:</span> <span class="nx">Semimajor</span> <span class="nx">axis</span> <span class="o">/</span> <span class="nx">change</span> <span class="nx">per</span> <span class="nx">century</span> <span class="p">(</span><span class="nx">all</span> <span class="dl">'</span><span class="s1">dx</span><span class="dl">'</span> <span class="nx">fields</span><span class="p">)</span>
+    <span class="dl">"</span><span class="s2">e</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">de</span><span class="dl">"</span><span class="p">:</span> <span class="nx">Eccentricity</span>
+    <span class="dl">"</span><span class="s2">i</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">di</span><span class="dl">"</span><span class="p">:</span> <span class="nx">Inclination</span>
+    <span class="dl">"</span><span class="s2">L</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">dL</span><span class="dl">"</span><span class="p">:</span> <span class="nx">or</span> <span class="dl">"</span><span class="s2">M</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">dM</span><span class="dl">"</span><span class="p">:</span> <span class="nx">mean</span> <span class="nx">longitude</span> <span class="p">(</span><span class="nx">M</span><span class="o">*</span><span class="nx">Q</span><span class="p">)</span> <span class="nx">or</span> <span class="nx">mean</span> <span class="nx">anomaly</span>
+    <span class="dl">"</span><span class="s2">W</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">dW</span><span class="dl">"</span><span class="p">:</span> <span class="nx">or</span> <span class="dl">"</span><span class="s2">w</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">dw</span><span class="dl">"</span><span class="p">:</span> <span class="nx">longitude</span> <span class="k">of</span> <span class="nx">periapsis</span> <span class="p">(</span><span class="nx">w</span><span class="o">*</span><span class="nx">N</span><span class="p">)</span> <span class="nx">or</span> <span class="nx">argument</span> <span class="k">of</span> <span class="nx">periapsis</span>
+    <span class="dl">"</span><span class="s2">N</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">dn</span><span class="dl">"</span><span class="p">:</span> <span class="nx">longitude</span> <span class="k">of</span> <span class="nx">the</span> <span class="nx">ascending</span> <span class="nx">node</span>
+    <span class="dl">"</span><span class="s2">ep</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2000-01-01</span><span class="dl">"</span> <span class="nx">epoch</span><span class="p">,</span> <span class="k">default</span> <span class="nx">date</span>
+  <span class="p">}],</span>
+  <span class="dl">"</span><span class="s2">desig</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>        <span class="c1">// 3-Letter designation</span>
+  <span class="p">...</span>                 <span class="c1">// Names in 14 different languages, see list in main readme</span>
+  <span class="p">}</span>
+</code></pre></div>
+        </div>
+
+
+
+
+        <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+            This site is open source. <a href="https://github.com/ofrohn/ofrohn.github.io/edit/master/data/readme.md">Improve this page</a>.
+        </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>
+        anchors.add();
+    </script>
+</body>
+
+</html>
