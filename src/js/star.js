@@ -1,19 +1,23 @@
+var app = new Vue({
+    el: '#starSky',
+    data: {
+        starSky: {
+            message: 'Под этим звёздным небом началась наша история',
+            city: 'Москва',
+            country: 'Россия', 
+            date: '20 июля 2020 года',
+            time: '22:00',
+            location: '55.755°N / 37.617°E'
+        }
+    }
+});
+
 var cfg = Celestial.settings().set({
-    zoomlevel: 1.1,    // Начальный зум
-    zoomextend: 1.1,     // Максимальный зум
+    zoomlevel: 1.3,    // Начальный зум
+    zoomextend: 1.3,     // Максимальный зум
     interactive: true,  // Возможность приближать и вращать карту
     geopos: [0,0],
-    location: true,
-    form: true, // Форма
-    // formFields: { // Поля для формы
-    //     "location": false,
-    //     "general": false,
-    //     "stars": false, 
-    //     "dsos": false, 
-    //     "constellations": false, 
-    //     "lines": false, 
-    //     "other": false
-    // },
+    location: true,  
     controls: false,
     land: 'ru',
     advanced: false,
@@ -23,19 +27,42 @@ var cfg = Celestial.settings().set({
     mw: {
         show: false
     },
+    background: {        // Background style
+        //fill: "#000000",   // Area fill
+        opacity: 0, 
+        //stroke: "#000000", // Outline
+        //width: 1.5
+    }, 
+    lines: {
+        graticule: { 
+            show: true, stroke: "#cccccc", width: 0.6, opacity: 0.8,
+            lon: {pos: [""], fill: "#eee", font: "10px Helvetica, Arial, sans-serif"}, 
+            lat: {pos: [""], fill: "#eee", font: "10px Helvetica, Arial, sans-serif"}
+        },    
+        equatorial: { show: false, stroke: "#aaaaaa", width: 1.3, opacity: 0.7 },  
+        ecliptic: { show: false, stroke: "#66cc66", width: 1.3, opacity: 0.7 },     
+        galactic: { show: false, stroke: "#cc6666", width: 1.3, opacity: 0.7 },    
+        supergalactic: { show: false, stroke: "#cc66cc", width: 1.3, opacity: 0.7 }
+    },
     planets: { 
         show: false 
     },
     stars: { //звёзды
         names: false,
-        limit: 4.6 
+        limit: 4.6 ,
+        designation: false,
+        colors : false, 
+        style: { fill: "#FCFDFF", opacity: 1 },
     },
     dsos: {
         show: false
     },
     constellations: { // Показывать названия созвездий
-        names: false,      
-        namesType: "ru", // Язык для названий созвездий
+        names: false, 
+        namesType: 'ru',
+        nameStyle: {opacity: "0"},  
+        lines: true,
+        //namesType: "ru", // Язык для названий созвездий
     }   
 }),
 
@@ -47,18 +74,55 @@ cncAnimFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame ||
                 window.webkitCancelAnimationFrame || window.msCancelAnimationFrame ||
                 window.oCancelAnimationFrame,
 dt = new Date();
-console.log(cfg);
+
+Celestial.display(cfg);
+
+
+//vue js
+
+//Чекбоксы styles
 function chengeVarables() {
-    console.log('fun chengeVarables');
+
+    //Чекбокс - заливка фона
+
+    if(document.getElementById('checkbox1').checked) {
+        cfg.background.opacity = 1;
+        Celestial.display(cfg);
+    } else {
+        cfg.background.opacity = 0;
+        Celestial.display(cfg);
+    }
+
+    //Чекбокс - сетка
+
+    if(document.getElementById('checkbox2').checked) {
+        cfg.lines.graticule.show = true;
+        Celestial.display(cfg);
+    } else {
+        cfg.lines.graticule.show = false;
+        Celestial.display(cfg);
+    }
+
+    //Чекбокс - созвездия
+
+    if(document.getElementById('checkbox3').checked) {
+        cfg.constellations.lines = true;
+        Celestial.display(cfg);
+    } else {
+        cfg.constellations.lines = false;
+        Celestial.display(cfg);
+    }
+
+    //Чекбокс - млечный путь
+
     if(document.getElementById('checkbox4').checked) {
         cfg.mw.show = true;
-        console.log('checked');
+        Celestial.display(cfg);
     } else {
         cfg.mw.show = false;
-        console.log('dontChecked');
+        Celestial.display(cfg);
     }
 }
-Celestial.display(cfg);
 
 // var planets = {"sol": "Sun", "mer": "Mercury", "ven": "Venus", "lun": "Moon", "mar": "Mars", "jup": "Jupiter", 
 //                "sat": "Saturn", "ura": "Uranus", "nep": "Neptune", "cer": "Ceres", "plu": "Pluto"}

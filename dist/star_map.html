@@ -8,6 +8,18 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="js/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css"/>
+    <link 
+        rel="stylesheet" 
+        href="library/lib/mapJs/leaflet.css" 
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin=""
+    >
+    <script 
+        src="library/lib/mapJs/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""
+    ></script>
+    <script src="library/lib/vue.js"></script>
 </head>
 <body>
     <header class="header desctop__menu">
@@ -74,10 +86,30 @@
             </li>
         </ul>
     </nav>
-    <section class="map">
+    <section class="map" id="mapView">
         <div class="container__map">
             <div class="map_left">
-                <img src="img/map.png" alt="">
+                <div class="map_painting">
+                    <div class="map_content">
+                        <div id="map" 
+                            style="
+                                height: 800px;
+                                width: 500px;
+                            "
+                        ></div>
+                        <div class="labels">
+                            <div class="city">
+                                {{map.city}}
+                            </div>
+                            <div class="country">
+                                <span>{{map.country}}</span>
+                            </div>
+                            <div class="subtitle">
+                                {{map.location}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="map_right">
                 <div class="map_characteristic">
@@ -141,7 +173,7 @@
                                 <div class="item__select">
                                     <p class="select__title">Выберете название населенного пункта:</p>
                                     <div class="change__city">
-                                        <input type="text" class="map__town" placeholder="Введите название города">
+                                        <input v-model="map.city" type="text" class="map__town" placeholder="Введите название города">
                                         <div class="map__inputIcon">
                                             <span class="map__inputIcon__icon"></span>
                                             <p>Карта</p>
@@ -156,15 +188,15 @@
                             <div class="list__item--hidden podpis">
                                 <div class="item__select">
                                     <p class="select__title">Заголовок 1</p>
-                                    <input type="text" class="input_podpis" placeholder="город">
+                                    <input v-model="map.city" type="text" class="input_podpis" placeholder="город">
                                 </div>
                                 <div class="item__select">
                                     <p class="select__title">Заголовок 2</p>
-                                    <input type="text" class="input_podpis" placeholder="страна">
+                                    <input v-model="map.country" type="text" class="input_podpis" placeholder="страна">
                                 </div>
                                 <div class="item__select">
                                     <p class="select__title">Заголовок 3</p>
-                                    <input type="text" class="input_podpis" placeholder="координаты">
+                                    <input v-model="map.location" type="text" class="input_podpis" placeholder="координаты">
                                 </div>
                             </div>
                             <div class="list__item">
@@ -295,8 +327,35 @@
             </div>
         </div>
     </footer>
-    <script src="js/script.min.js"></script>
     <script src="js/slick/slick.min.js"></script>
     <script src="js/script.slider.js"></script>
+    <script>
+
+        var app = new Vue({
+        el: '#mapView',
+        data: {
+            map: {
+                city: 'Moscow',
+                location: '55.755°N / 37.617°E',
+                country: 'Russia'
+            }
+        }
+        })
+
+        var map = L.map('map').setView([51.505, -0.09], 13);
+    
+        var tiles = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+            maxZoom: 18,
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1
+        }).addTo(map);
+    
+        map.on('click', onMapClick);
+    
+    </script>
+    <script src="js/script.min.js"></script>
+    
 </body>
 </html>
+
