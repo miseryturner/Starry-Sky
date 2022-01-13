@@ -117,8 +117,8 @@
                         <div class="title__block">
                             <h1 class="map__title">Карта города</h1>
                             <p class="map__info">
-                                Укажите место, текст, выберите цвет и оформление,
-                                а также размеры постера и рамку
+                                Укажите место, текст, выберите цвет и оформление,
+                                а также размеры постера и рамку
                             </p>
                         </div>
                         <div class="characteristic__list">
@@ -330,32 +330,9 @@
     <script src="js/slick/slick.min.js"></script>
     <script src="js/script.slider.js"></script>
     <script>
-
-        var app = new Vue({
-        el: '#mapView',
-        data: {
-            map: {
-                city: 'Moscow',
-                location: '55.755°N / 37.617°E',
-                country: 'Russia'
-            }
-        }
-        })
-
-        var map = L.map('map').setView([51.505, -0.09], 13);
-    
-        var tiles = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-            maxZoom: 18,
-            id: 'mapbox/streets-v11',
-            tileSize: 512,
-            zoomOffset: -1
-        }).addTo(map);
-    
-        map.on('click', onMapClick);
-    
     </script>
     <script src="js/script.min.js"></script>
-    
+    <script src="js/map.js"></script>
 </body>
 </html>
 

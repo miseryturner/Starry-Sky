@@ -5,9 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>test</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
+    </style>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="js/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css"/>
+    <script src="library/lib/vue.js"></script>
 </head>
 <body>
     <header class="header desctop__menu">
@@ -74,16 +78,45 @@
             </li>
         </ul>
     </nav>
-    <section class="map">
+    <section class="map" id="zodiac">
         <div class="container__map">
             <div class="map_left">
-                <img src="img/zadiacs.png" alt="">
+                <div class="zadiac_wrapper">
+                    <div v-bind:style="{ 'background-color': zadiacInfo.bgColor }">
+                        <div class="zadiac_border">
+                            <div class="zadiac_inside">
+                                <div class="inner_border_zadiac">
+                                    <div class="zadiac_content">
+                                        <div>
+                                            <div class="image_container_zadiac">
+                                                <div class="constellation_zadiac" v-bind:style="{ 'background-image': 'url(' + zadiacInfo.imageUrl + ')' }"></div> 
+                                            </div>
+                                            <div class="monogram_zadiac" v-bind:style="{ 'background-image': 'url(' + zadiacInfo.urlMonogram + ')' }"></div> 
+                                            <div class="info_zadiac">
+                                                <div class="zadiac_name" v-bind:style="{ 'color': zadiacInfo.nameColor }">
+                                                    {{constellation.name}}
+                                                </div>
+                                                <div class="zadiac_title" v-bind:style="{ 'color': zadiacInfo.textColor }">
+                                                    <div class="hl"></div>
+                                                    {{constellation.title}}
+                                                    <div class="hl"></div>
+                                                </div>
+                                                <div class="zadiac_tag">{{constellation.tag}}</div>
+                                                <div class="zadiac_date">{{constellation.date}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="map_right">
                 <div class="map_characteristic">
                     <div class="map__top">
                         <div class="title__block">
-                            <h1 class="map__title">Карта города</h1>
+                            <h1 class="map__title">Зодиаки</h1>
                             <p class="map__info">
                                 Укажите место, текст, выберите цвет и оформление,
                                 а также размеры постера и рамку
@@ -98,18 +131,56 @@
                                 <div class="item__select">
                                     <p class="select__title">Выберете тип оформления:</p>
                                     <div class="select__content">
-                                        <button class="type__style type__style--active">Сканди</button>
-                                        <button class="type__style">Норди</button>
+                                        <button @click="switchingButtons('skandi')" :class="classStyle.skandi" class="type__style">Сканди</button>
+                                        <button @click="switchingButtons('nordi')" :class="classStyle.nordi" class="type__style">Норди</button>
                                     </div>
                                 </div>
-                                <div class="item__select">
+                                <div class="item__select" v-if='visible.skandi'>
                                     <p class="select__title">Выберете стиль:</p>
                                     <div class="select__content">
-                                        <button class="type__style type__style--active">Сканди</button>
+                                        <button 
+                                            @click="
+                                                changeStyle('dark', 
+                                                '#353635', 
+                                                'rgb(178, 179, 179)', 
+                                                'rgb(254, 254, 254)')
+                                            "
+                                            class="type__style type__style--active"
+                                        >
+                                            Чёрный
+                                        </button>
+                                        <button 
+                                            @click="
+                                                changeStyle('cloud',
+                                                'rgb(160, 175, 185)', 
+                                                'rgb(53, 68, 79)', 
+                                                'rgb(254, 254, 254)')
+                                            " 
+                                            class="type__style"
+                                        >
+                                            Аквамарин
+                                        </button>
+                                        <button 
+                                            class="type__style"
+                                            @click="
+                                                changeStyle('midnight',
+                                                'rgb(54, 69, 79)', 
+                                                'rgb(160, 175, 185)', 
+                                                'rgb(254, 254, 254)')
+                                            " 
+                                        >
+                                            Синий
+                                        </button>
                                         <button class="type__style">Норди</button>
                                         <button class="type__style">Сканди</button>
-                                        <button class="type__style">Норди</button>
-                                        <button class="type__style">Сканди</button>
+                                    </div>
+                                    <p class="dop__text">цвет в печатном варианте может незначительно отличаться от цвета на экране.</p>
+                                </div>
+                                <div class="item__select" v-if='visible.nordi'>
+                                    <p class="select__title">Выберете стиль:</p>
+                                    <div class="select__content">
+                                        <button class="type__style type__style--active">Белый</button>
+                                        <button class="type__style">Контраст</button>
                                     </div>
                                     <p class="dop__text">цвет в печатном варианте может незначительно отличаться от цвета на экране.</p>
                                 </div>
@@ -122,7 +193,13 @@
                                 <div class="item__select">
                                     <p class="select__title">Выберете знак зодиака:</p>
                                     <div class="change__city">
-                                        <input type="text" class="map__town" placeholder="Начните вводить знак зодиака">
+                                        <input type="text" v-model="zadiacSearchValue" @input="zadiacSearchBoolean" class="map__town" placeholder="Начните вводить знак зодиака">
+                                        <div v-if="zadiacSearch" class="zadiac_column">
+                                            <div v-for="item in todosByTitle" class="zadiac_item" @click="changeZadiac(item.title, item.name, item.date)">
+                                                <p class="zadiac_name">{{item.name}}</p>
+                                                <p class="zadiac_date">{{item.date}}</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -133,19 +210,19 @@
                             <div class="list__item--hidden podpis">
                                 <div class="item__select">
                                     <p class="select__title">Заголовок 1</p>
-                                    <input type="text" class="input_podpis" placeholder="страна">
+                                    <input v-model="constellation.name" type="text" class="input_podpis" placeholder="страна">
                                 </div>
                                 <div class="item__select">
                                     <p class="select__title">Заголовок 2</p>
-                                    <input type="text" class="input_podpis" placeholder="город">
+                                    <input v-model="constellation.title" type="text" class="input_podpis" placeholder="город">
                                 </div>
                                 <div class="item__select">
                                     <p class="select__title">Заголовок 3</p>
-                                    <input type="text" class="input_podpis" placeholder="Дата / Время">
+                                    <input v-model="constellation.tag" type="text" class="input_podpis" placeholder="Дата / Время">
                                 </div>
                                 <div class="item__select">
                                     <p class="select__title">Заголовок 4</p>
-                                    <input type="text" class="input_podpis" placeholder="координаты">
+                                    <input v-model="constellation.date" type="text" class="input_podpis" placeholder="координаты">
                                 </div>
                             </div>
                             <div class="list__item">
@@ -269,6 +346,7 @@
             </div>
         </div>
     </footer>
+    <script src="js/zodiac.js"></script>
     <script src="js/script.min.js"></script>
     <script src="js/slick/slick.min.js"></script>
     <script src="js/script.slider.js"></script>
